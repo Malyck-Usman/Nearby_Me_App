@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="#284aa4"
+    android:padding="16dp"
+    android:gravity="bottom"
+    >
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nearby Me"
+    android:textSize="30sp"
+    android:textColor="#ffffff"
+    android:textAppearance="@style/TextAppearance.AppCompat"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anything You Want Is Near You"
+        android:textSize="16sp"
+        android:textColor="#ffffff" />
+
+
+</LinearLayout>
