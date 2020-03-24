@@ -5,4 +5,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="LoginEmail">E-Mail</string>
+    <string name="LoginPassword">Password</string>
+    <string name="BtnTextSignin">SIGN IN</string>
+    <string name="LoginScreenDonthaveaccount">Don\'t have an account ?</string>
+    <string name="LoginTextSignup">SIGN UP</string>
 </resources>

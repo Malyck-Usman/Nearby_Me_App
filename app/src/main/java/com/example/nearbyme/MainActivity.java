@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.nav_home:
                 //home fragment here
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_login()).commit();
                 break;
 
             case R.id.nav_services:
@@ -84,9 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //announcement fragment here
                 break;
 
-            case R.id.nav_logout:
-                //logout code here
-                break;
+
             default:
                 break;
         }

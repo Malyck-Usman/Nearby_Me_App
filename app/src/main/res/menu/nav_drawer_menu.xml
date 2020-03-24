@@ -8,45 +8,34 @@
 
         <item
             android:id="@+id/nav_home"
-            android:title="Home"></item>
-        <item
-            android:id="@+id/nav_services"
-            android:title="Services"
-            ></item>
+            android:title="Home"
+            android:icon="@drawable/menu_icon_home"/>
         <item
             android:id="@+id/nav_homeshop"
-            android:title="Home/Shop "></item>
+            android:title="Home/Shop for rent"
+            android:icon="@drawable/menu_icon_home_shop_for_rent"/>
         <item
             android:id="@+id/nav_restaurents"
             android:title="Restaurents"
-            ></item>
+            android:icon="@drawable/menu_icon_restaurants"/>
+        <item
+            android:id="@+id/nav_services"
+            android:title="Services"
+            android:icon="@drawable/menu_icon_services"/>
         <item
             android:id="@+id/nav_buysell"
             android:title="Buy/sell"
-            ></item>
+            android:icon="@drawable/menu_icon_buy_sell"/>
+
         <item
             android:id="@+id/nav_homestores"
-            android:title="Home Stores"></item>
+            android:title="Home Stores"
+            android:icon="@drawable/menu_icon_homestore"/>
         <item
             android:id="@+id/nav_announcement"
-            android:title="Make Announcement"></item>
+            android:title="Make Announcement"
+            android:icon="@drawable/menu_icon_announcement"/>
 
     </group>
-
-
-    <item android:title="">
-    <menu>
-        <item
-            android:id="@+id/nav_logout"
-            android:title="Logout"
-            android:icon="@drawable/nav_icon_logout"></item>
-    </menu>
-    </item>
-
-
-
-
-
-
 
 </menu>

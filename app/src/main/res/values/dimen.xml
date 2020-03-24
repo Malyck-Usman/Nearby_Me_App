@@ -3,4 +3,16 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="view_elevation">4dp</dimen>
+    <dimen name="login_screen_logo_height">150dp</dimen>
+    <dimen name="button_corner_radius">50dp</dimen>
+    <dimen name="Textsize">22sp</dimen>
+    <dimen name="marginTop">20dp</dimen>
+    <dimen name="view_padding_low">10dp</dimen>
+    <dimen name="dashboardMenuWidth">160dp</dimen>
+    <dimen name="dashboardMenuHeight">180dp</dimen>
+    <dimen name="dashboard_Menu_Margin">15dp</dimen>
+    <dimen name="dashboard_menu_textsize">18sp</dimen>
+    <dimen name="dashboard_menu_ruler_height">1dp</dimen>
+    <dimen name="dashboard_view_margins">5dp</dimen>
+
 </resources>

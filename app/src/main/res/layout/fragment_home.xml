@@ -1,14 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment_home">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<com.google.android.material.appbar.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+    <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_scrollFlags="exitUntilCollapsed|scroll"
+        app:contentScrim="@color/colorPrimary"
+        android:background="@drawable/img_dashboardheader"
+        app:title="Title here"
+        app:expandedTitleMarginEnd="48dp"
+        app:expandedTitleMarginBottom="60dp">
 
-</FrameLayout>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+</com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/view_padding_low"
+            android:clipToPadding="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clipToPadding="false">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_home_shop_for_rent"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Home/Shop"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="find home/shop available for rent"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_restaurants"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Restaurant/Hotels"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="find nearby restaurants/hotels"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clipToPadding="false">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp"></View>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_services"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Services"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="find the service you need"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_buysell"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Buy/Sell"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="buy/sell goods nearby"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:clipToPadding="false">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_homestore"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Home Store"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="find nearby home stores"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dashboardMenuWidth"
+                    android:layout_height="@dimen/dashboardMenuHeight"
+                    android:elevation="@dimen/view_elevation"
+                    android:layout_margin="@dimen/dashboard_Menu_Margin"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_announcement"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Announcement"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textColor="@color/colorAccent"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dashboard_menu_ruler_height"
+                            android:background="@color/app_yellowish"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="make announcement to reach narby people"
+                            android:gravity="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_margin="@dimen/dashboard_view_margins"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
