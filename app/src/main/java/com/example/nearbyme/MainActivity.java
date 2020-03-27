@@ -55,33 +55,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.nav_home:
                 //home fragment here
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_login()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home()).commit();
                 break;
 
             case R.id.nav_services:
-                    //services fragment here
+                //services fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_services()).commit();
+
                     break;
 
             case R.id.nav_homeshop:
                 //homeshop fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home_shop()).commit();
                 break;
 
             case R.id.nav_restaurents:
                 //restaurent fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_restaurant_hotel()).commit();
                 break;
             case R.id.nav_buysell:
                 //buysell fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_buy_sell()).commit();
                 break;
 
             case R.id.nav_homestores:
                 //home store fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_homestores()).commit();
                 break;
 
             case R.id.nav_announcement:
                 //announcement fragment here
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_announcement()).commit();
                 break;
 
 
