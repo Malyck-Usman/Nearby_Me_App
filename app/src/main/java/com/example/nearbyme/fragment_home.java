@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,7 @@ public class fragment_home extends Fragment implements View.OnClickListener {
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_restaurant_hotel()).commit();
                 break;
             case R.id.cdvServices:
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_services()).commit();
+     getFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_services()).commit();
                 break;
             case R.id.cdvBuySell:
                 getFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_buy_sell()).commit();

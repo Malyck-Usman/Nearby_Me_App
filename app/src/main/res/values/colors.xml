@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#284aa4</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#2cb14f</color>
+    <color name="colorAccent">#f4c20d</color>
     <color name="colorOnPrimary">#ffffff</color>
+    <color name="app_green">#2cb14f</color>
     <color name="app_red">#f9493d</color>
     <color name="app_yellowish">#f4c20d</color>
 

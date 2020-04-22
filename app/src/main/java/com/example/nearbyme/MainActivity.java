@@ -6,24 +6,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout navigationdrawer;
+Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_drawer_layout);
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         //to add navigation drawer toggle icon
         navigationdrawer=findViewById(R.id.drawer_layout);
         NavigationView navigationView=findViewById(R.id.navigation_view);
@@ -42,15 +46,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
      }
+     public void setToolbarTitle(String title)
+     {
+         toolbar.setTitle(title);
+         setSupportActionBar(toolbar);
 
+     }
     @Override //for open drawer to close it on back press and close activity if drawer is closed
     public void onBackPressed() {
         if(navigationdrawer.isDrawerOpen(GravityCompat.START))
         {
             navigationdrawer.closeDrawer(GravityCompat.START);
-        }else {
-            super.onBackPressed();
+        }else{
+            Fragment fragInFrame=getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if(!(fragInFrame instanceof fragment_home )){
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home()).commit();
+            }
+            else {
+                super.onBackPressed();
+            }
         }
+
     }
 
     @Override
@@ -59,11 +75,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()){
             case R.id.nav_home:
                 //home fragment here
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home()).commit();
+
                 break;
 
             case R.id.nav_services:
                 //services fragment here
+               // setToolbarTitle("services");
+                setTitle("services");
+
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_services()).commit();
 
                     break;
