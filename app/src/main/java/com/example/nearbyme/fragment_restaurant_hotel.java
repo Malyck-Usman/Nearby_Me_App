@@ -23,6 +23,7 @@ public class fragment_restaurant_hotel extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainActivity) getActivity()).setActionBarTitle("Restaurants");
         return inflater.inflate(R.layout.fragment_restaurant_hotel, container, false);
     }
 }

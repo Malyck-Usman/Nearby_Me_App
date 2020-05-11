@@ -23,6 +23,7 @@ public class fragment_announcement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainActivity) getActivity()).setActionBarTitle("Announcement");
         return inflater.inflate(R.layout.fragment_announcement, container, false);
     }
 

@@ -16,7 +16,7 @@
             android:icon="@drawable/menu_icon_home_shop_for_rent"/>
         <item
             android:id="@+id/nav_restaurents"
-            android:title="Restaurents"
+            android:title="Restaurants"
             android:icon="@drawable/menu_icon_restaurants"/>
         <item
             android:id="@+id/nav_services"
@@ -37,5 +37,42 @@
             android:icon="@drawable/menu_icon_announcement"/>
 
     </group>
+    <item android:title="Add">
+        <menu>
+            <item android:id="@+id/nav_add_home_shop"
+                android:icon="@drawable/icon_add"
+                android:title="Add Home/Shop">
+
+            </item>
+            <item android:id="@+id/nav_add_restaurant"
+                android:icon="@drawable/icon_add"
+                android:title="Add Restaurant">
+
+            </item>
+            <item android:id="@+id/nav_add_services"
+                android:icon="@drawable/icon_add"
+                android:title="Add Services">
+
+            </item>
+            <item android:id="@+id/nav_add_Item"
+                android:icon="@drawable/icon_add"
+                android:title="Add Item">
+
+            </item>
+            <item android:id="@+id/nav_add_home_store"
+                android:icon="@drawable/icon_add"
+                android:title="Add Home Store">
+
+            </item>
+            <item android:id="@+id/nav_add_announcement"
+                android:icon="@drawable/icon_add"
+                android:title="Make Announcement">
+
+            </item>
+
+
+
+        </menu>
+    </item>
 
 </menu>

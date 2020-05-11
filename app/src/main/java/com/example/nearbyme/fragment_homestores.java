@@ -23,6 +23,7 @@ public class fragment_homestores extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainActivity) getActivity()).setActionBarTitle("Home Store");
         return inflater.inflate(R.layout.fragment_homestores, container, false);
     }
 }

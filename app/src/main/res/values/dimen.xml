@@ -14,5 +14,9 @@
     <dimen name="dashboard_view_margins">5dp</dimen>
     <dimen name="fragment_cardview_margin">8dp</dimen>
     <dimen name="fragments_top_bottom_cardview_radius">20dp</dimen>
+    <dimen name="checkbox_margin">15dp</dimen>
+    <dimen name="Text_size_small">18sp</dimen>
+<dimen name="fragment_add_layout_margin">10dp</dimen>
+    <dimen name="chk_margin_top">10dp</dimen>
 
 </resources>

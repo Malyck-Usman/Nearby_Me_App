@@ -23,6 +23,7 @@ public class fragment_buy_sell extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((MainActivity) getActivity()).setActionBarTitle("Buy Item");
         return inflater.inflate(R.layout.fragment_buy_sell, container, false);
     }
 }
