@@ -109,7 +109,7 @@ public class fragment_home extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.fab_announcements:
-                getParentFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_signup()).commit();
+                getParentFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_add_announcement()).commit();
 
                 break;
 

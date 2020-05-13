@@ -15,4 +15,37 @@
     <string name="user_document_key">user_key</string>
     <!-- Strings used for fragments for navigation -->
 
+
+
+
+
+
+
+    <string-array name="Bikes">
+
+
+
+    </string-array>
+    <string-array name="Animals_Pets">
+
+
+
+    </string-array>
+    <string-array name="Furniture_HomeDecor">
+
+    </string-array>
+    <string-array name="Fashion_Beauty">
+
+    </string-array>
+    <string-array name="Books_Sports">
+
+
+
+    </string-array>
+    <string-array name="KidsFurniture_Accessories">
+
+
+    </string-array>
+
+
 </resources>
