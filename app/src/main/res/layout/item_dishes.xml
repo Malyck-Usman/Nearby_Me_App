@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/tv_dish_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Dish Name"
+            android:textSize="@dimen/Text_size_small"
+            android:gravity="center_horizontal"
+
+            android:background="@drawable/bg_recycleview_item_left"/>
+        <TextView
+            android:id="@+id/tv_dish_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Dish price"
+            android:textSize="@dimen/Text_size_small"
+            android:gravity="center_horizontal"
+
+            android:background="@drawable/bg_recycleview_item_right"/>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

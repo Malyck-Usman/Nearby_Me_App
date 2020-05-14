@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment_add_services">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/fragment_add_layout_margin"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                android:layout_margin="5dp">
+                <Button
+                    android:id="@+id/btn_sevices_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_get_location_btn"
+                    android:text="Click to get Location"
+                    android:textColor="@color/colorPrimary"
+                    android:drawableEnd="@drawable/icon_gps"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Spinner
+                android:id="@+id/sp_services"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/edt_speciality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterMaxLength="25"
+                app:counterEnabled="true"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Specialty"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/edt_experience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterMaxLength="2"
+                app:counterEnabled="true"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Experience in Years"
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select how you charge"
+                android:textColor="@color/colorPrimary"/>
+            <RadioGroup
+                android:id="@+id/rg_charges_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+
+                >
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_per_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="per service"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_per_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="per day"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_per_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="per hour"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rb_per_client"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="per Client"/>
+            </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/edt_charges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="5"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Charges "
+                    android:inputType="number"
+                    android:textColor="@color/colorPrimary"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/edt_service_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_save_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button"
+                android:textColor="@color/app_yellowish"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:text="save"/>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

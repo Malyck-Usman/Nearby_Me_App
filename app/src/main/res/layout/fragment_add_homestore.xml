@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment_add_homestore">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/fragment_add_layout_margin"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                android:layout_margin="5dp">
+                <Button
+                    android:id="@+id/btn_home_store_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_get_location_btn"
+                    android:text="Click to get Location"
+                    android:textColor="@color/colorPrimary"
+                    android:drawableEnd="@drawable/icon_gps"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"/>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Spinner
+                android:id="@+id/sp_store_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_store_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="25">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Store Name"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/edt_store_opening_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Opening time"
+                android:inputType="none"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/edt_store_closing_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:hint="Closing time"
+                android:inputType="none"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_store_description"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                android:textColorHint="@color/colorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="200">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <Button
+                android:id="@+id/btn_save_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button"
+                android:textColor="@color/app_yellowish"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:text="save"/>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

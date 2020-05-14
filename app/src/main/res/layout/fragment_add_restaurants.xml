@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_add_restaurants"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/fragment_add_layout_margin"
+            android:orientation="vertical">
+          <androidx.cardview.widget.CardView
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              app:cardCornerRadius="20dp"
+              app:cardElevation="4dp"
+              android:layout_margin="5dp">
+              <Button
+                  android:id="@+id/btn_res_location"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/bg_get_location_btn"
+                  android:text="Click to get Location"
+                  android:textColor="@color/colorPrimary"
+                  android:drawableEnd="@drawable/icon_gps"
+                  android:paddingRight="10dp"
+                  android:paddingLeft="10dp"/>
+
+
+          </androidx.cardview.widget.CardView>
+
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/sp_restaurant_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_restaurant_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Restaurant Name"
+                    android:inputType="text"
+                    android:textColor="@color/colorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/edt_res_opening_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:hint="Opening time"
+                android:inputType="none"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/edt_res_closing_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:hint="Closing time"
+                android:inputType="none"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+
+                />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_res_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/app_green"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_covered_area">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/app_green"
+                    android:textSize="@dimen/Text_size_small" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edt_dish_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3.5"
+                    android:textColorHint="@color/app_green"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/app_red">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Dish Name"
+                        android:inputType="text"
+                        android:textColor="@color/app_green" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edt_dish_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="3.5"
+                    android:textColorHint="@color/app_green"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/app_red">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Price"
+                        android:inputType="number"
+                        android:textColor="@color/app_green"
+                        android:textSize="@dimen/Text_size_small" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_add_dish"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="2"
+                    android:text="Add" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_dishes"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/pb_res_img"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btn_choose_res_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Choose" />
+
+                <Button
+                    android:id="@+id/btn_upload_res_image"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Upload"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_res_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_home_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Home delivery"
+                android:textColor="@color/app_green" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_table_reservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Table Reservation"
+                android:textColor="@color/app_green" />
+
+
+            <Button
+                android:id="@+id/btn_save_restaurent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button"
+                android:text="save"
+                android:textColor="@color/app_yellowish"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
