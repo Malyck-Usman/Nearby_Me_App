@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,7 +38,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -82,6 +86,10 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
     private boolean isGetLocation = false;
     private double latitude = 0;
     private double longitude = 0;
+    private String res_id = null;
+    private String user_id = null;
+    private String dish_id=null;
+
 
     public fragment_add_restaurants() {
         // Required empty public constructor
@@ -92,16 +100,13 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity) getActivity()).setActionBarTitle("Add Restaurant");
         View view = inflater.inflate(R.layout.fragment_add_restaurants, container, false);
+        checkLogin();
+        ((MainActivity) getActivity()).setActionBarTitle("Add Restaurant");
         mDatabaseRef = FirebaseFirestore.getInstance();
+        getBundle();
 
-        SharedPreferences.Editor sp = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE).edit();
 
-        ////////////////////////////////////////////////////////////
-        sp.putString(getString(R.string.DOCUMENT_ID), "unihRmGR3h6UtXGi3HJ8");///
-        sp.apply();/////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////
         InitViews(view);
 
 
@@ -158,6 +163,67 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
         return view;
     }
 
+    private void checkLogin() {
+        SharedPreferences checkUserId = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
+        user_id = checkUserId.getString(getString(R.string.DOCUMENT_ID), "");
+        if (user_id.equals("")) {
+            fragment_login login = new fragment_login();
+            login.setTargetFragment(fragment_add_restaurants.this, 6);
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .replace(R.id.fragment_container, login)
+                    .addToBackStack(null).commit();
+
+        }
+    }
+
+    private void getBundle() {
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            res_id = bundle.getString("res_id", null);
+            mDatabaseRef.collection("restaurants").document(res_id).get()
+                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Restaurant_info res = documentSnapshot.toObject(Restaurant_info.class);
+                            edt_Restaurant_Name.getEditText().setText(res.getRes_name());
+                            edt_Res_Description.getEditText().setText(res.getDescription());
+
+                            mDatabaseRef.collection("restaurants").document(res_id).collection("dishes")
+                                    .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                    for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
+                                       dish_id=qds.getId();
+                                        dishes = qds.getData();
+                                    }
+                                    mDishAdapter.GetIds(res_id,dish_id);
+
+                                    for (Map.Entry entry : dishes.entrySet()) {
+                                        Dish dish = new Dish((String) entry.getKey(), (String) entry.getValue());
+                                        mDishList.add(dish);
+                                    }
+                                    mDishAdapter.notifyDataSetChanged();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getContext(), "failed to get dish list", Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+
+        }
+    }
+
     private void InitViews(View view) {
         edt_Restaurant_Name = view.findViewById(R.id.edt_restaurant_name);
         edt_Res_Opening_Time = view.findViewById(R.id.edt_res_opening_time);
@@ -192,9 +258,7 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
         btn_upload_img = view.findViewById(R.id.btn_upload_res_image);
         iv_Res_Image = view.findViewById(R.id.iv_res_image);
         mProgressbar = view.findViewById(R.id.pb_res_img);
-        //////////////////
-
-        mDBDocRef = mDatabaseRef.collection("restaurants").document();
+////////////////
 
     }
 
@@ -278,7 +342,7 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
     }
 
     private boolean ValidateRecyclerView() {
-        if (dishes.isEmpty()) {
+        if (mDishList.isEmpty()) {
             edt_Dish_Name.setError("you must add min one dish");
             edt_Dish_Price.setError("you must add min one dish");
         } else {
@@ -298,7 +362,7 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
                 Dish dish = new Dish(dish_name, dish_price);
                 mDishList.add(dish);
                 mDishAdapter.notifyDataSetChanged();
-                dishes.put(dish_name, dish_price);
+//                dishes.put(dish_name, dish_price);
 
             }
             break;
@@ -320,20 +384,11 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
                     TableReservation = false;
                 }
 
-                ////////////////////////////////////
-                SharedPreferences Login = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
-
-                String key = Login.getString(getString(R.string.DOCUMENT_ID), "");
-                if (key.equals("")) {
-                    Toast.makeText(getActivity(), "Key not found", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                ////////////////////////////////////
 
                 String res_type = sp_Restaurant_Type.getSelectedItem().toString();
                 String res_name = edt_Restaurant_Name.getEditText().getText().toString().trim();
                 String res_description = edt_Res_Description.getEditText().getText().toString().trim();
-                Restaurant_info res_info = new Restaurant_info(key
+                Restaurant_info res_info = new Restaurant_info(user_id
                         , latitude
                         , longitude
                         , res_type
@@ -345,6 +400,14 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
                         , res_description
                         , HomeDelivery
                         , TableReservation);
+                if (res_id != null) {
+
+                    mDBDocRef = mDatabaseRef.collection("restaurants").document(res_id);
+
+                } else {
+                    mDBDocRef = mDatabaseRef.collection("restaurants").document();
+
+                }
                 //  mDatabaseRef.collection("restaurants").document()
                 mDBDocRef.set(res_info)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -352,8 +415,24 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG", "data inserted successfully");
                                 Toast.makeText(getActivity(), "success", Toast.LENGTH_LONG).show();
-                                mDBDocRef.collection("dishes").document().set(dishes);
+                                for (int i = 0; i < mDishList.size(); i++) {
+                                    Dish dish = mDishList.get(i);
+
+                                    dishes.put(dish.getDish_name(),dish.getDish_price());
+                                }
+
+                                if (dish_id != null) {
+
+                                    mDBDocRef = mDBDocRef.collection("dishes").document(dish_id);
+
+                                } else {
+                                    mDBDocRef =  mDBDocRef.collection("dishes").document();
+
+                                }
+                               mDBDocRef.set(dishes);
+
                             }
+
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -440,6 +519,6 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
         latitude = lat;
         longitude = lng;
         btn_Res_Location.setText("Location Saved");
-        btn_Res_Location.setTextColor(getResources().getColor(R.color.colorPrimary));
+        btn_Res_Location.setTextColor(getResources().getColor(R.color.ColorPrimary));
     }
 }

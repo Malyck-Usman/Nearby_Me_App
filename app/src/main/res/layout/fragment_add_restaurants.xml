@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_add_restaurants"
-    >
+    tools:context=".fragment_add_restaurants">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -18,25 +17,27 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/fragment_add_layout_margin"
             android:orientation="vertical">
-          <androidx.cardview.widget.CardView
-              android:layout_width="match_parent"
-              android:layout_height="40dp"
-              app:cardCornerRadius="20dp"
-              app:cardElevation="4dp"
-              android:layout_margin="5dp">
-              <Button
-                  android:id="@+id/btn_res_location"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:background="@drawable/bg_get_location_btn"
-                  android:text="Click to get Location"
-                  android:textColor="@color/colorPrimary"
-                  android:drawableEnd="@drawable/icon_gps"
-                  android:paddingRight="10dp"
-                  android:paddingLeft="10dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+
+                <Button
+                    android:id="@+id/btn_res_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_get_location_btn"
+                    android:drawableEnd="@drawable/icon_gps"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Click to get Location"
+                    android:textColor="@color/ColorPrimary" />
 
 
-          </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <androidx.appcompat.widget.AppCompatSpinner
@@ -48,7 +49,8 @@
                 android:id="@+id/edt_restaurant_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary"
+                android:hint="Restaurant Name"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:errorEnabled="true"
@@ -59,9 +61,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Restaurant Name"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/ColorPrimary" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
@@ -71,8 +72,8 @@
                 android:layout_marginBottom="12dp"
                 android:hint="Opening time"
                 android:inputType="none"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary" />
+                android:textColor="@color/ColorPrimary"
+                android:textColorHint="@color/ColorPrimary" />
 
             <EditText
                 android:id="@+id/edt_res_closing_time"
@@ -81,8 +82,8 @@
                 android:layout_marginBottom="5dp"
                 android:hint="Closing time"
                 android:inputType="none"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary"
+                android:textColor="@color/ColorPrimary"
+                android:textColorHint="@color/ColorPrimary"
 
                 />
 
@@ -91,7 +92,8 @@
                 android:id="@+id/edt_res_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/app_green"
+                android:hint="Description"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="200"
                 app:errorEnabled="true"
@@ -102,9 +104,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Description"
                     android:inputType="textMultiLine"
-                    android:textColor="@color/app_green"
                     android:textSize="@dimen/Text_size_small" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,16 +120,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="3.5"
-                    android:textColorHint="@color/app_green"
+                    android:hint="Dish Name"
+                    android:textColorHint="@color/ColorPrimary"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/app_red">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Dish Name"
                         android:inputType="text"
-                        android:textColor="@color/app_green" />
+                        android:textColor="@color/ColorPrimary" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -138,16 +138,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="3.5"
-                    android:textColorHint="@color/app_green"
+                    android:hint="Price"
+                    android:textColorHint="@color/ColorPrimary"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/app_red">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Price"
                         android:inputType="number"
-                        android:textColor="@color/app_green"
+                        android:textColor="@color/ColorPrimary"
                         android:textSize="@dimen/Text_size_small" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -186,20 +186,23 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Choose" />
+                    android:text="Choose"
+                    android:visibility="invisible"/>
 
                 <Button
                     android:id="@+id/btn_upload_res_image"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Upload"/>
+                    android:text="Upload"
+                    android:visibility="invisible"/>
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/iv_res_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
 
 
             <com.google.android.material.checkbox.MaterialCheckBox
@@ -209,7 +212,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Home delivery"
-                android:textColor="@color/app_green" />
+                android:textColor="@color/ColorPrimary" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_table_reservation"
@@ -218,7 +221,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Table Reservation"
-                android:textColor="@color/app_green" />
+                android:textColor="@color/ColorPrimary" />
 
 
             <Button
@@ -228,7 +231,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button"
                 android:text="save"
-                android:textColor="@color/app_yellowish"
+                android:textColor="@color/ColorPrimary"
                 android:textStyle="bold" />
 
 

@@ -3,22 +3,17 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="app_name">Nearby Me</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="LoginEmail">E-Mail</string>
     <string name="LoginPassword">Password</string>
     <string name="BtnTextSignin">SIGN IN</string>
     <string name="LoginScreenDonthaveaccount">Don\'t have an account ?</string>
     <string name="LoginTextSignup">SIGN UP</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="M_LOGIN_FILE">my_login_file</string>
     <string name="DOCUMENT_ID">user_document_id</string>
 
     <!-- Strings used for fragments for navigation -->
-
-
-
 
 
 </resources>

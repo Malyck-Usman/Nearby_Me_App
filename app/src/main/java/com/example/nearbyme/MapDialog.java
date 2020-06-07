@@ -33,7 +33,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import java.util.zip.Inflater;
 
 public class MapDialog extends DialogFragment implements OnMapReadyCallback {
-    SharedPreferences sp;
     private GetLocationDialogInterface locationDialogInterface;
     private GoogleMap mGoogleMap;
     private FusedLocationProviderClient mLocationClient;
@@ -72,10 +71,7 @@ mLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Loc
         double lat=location.getLatitude();
         double lng=location.getLongitude();
         locationDialogInterface.OnLocationGet(lat,lng);
-//        SharedPreferences.Editor My_location=getActivity().getSharedPreferences(getString(R.string.M_LOCATION_FILE),Context.MODE_PRIVATE).edit();
-//        My_location.putString(getString(R.string.LAT),String.valueOf(lat));
-//        My_location.putString(getString(R.string.LNG),String.valueOf(lng));
-//        My_location.apply();
+
 
         Toast.makeText(getContext(),"Lat="+lat+"Lng="+lng,Toast.LENGTH_LONG).show();
     }
@@ -108,11 +104,7 @@ mv.getMapAsync(this);
 
 
     }
-
-
-
-
-    @Override
+  @Override
     public void onStart() {
         super.onStart();
         mv.onStart();

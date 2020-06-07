@@ -1,9 +1,11 @@
 package com.example.nearbyme;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,13 +24,17 @@ import com.example.nearbyme.Model.Item_info;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_add_Item extends Fragment implements MapDialog.GetLocationDialogInterface,View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
+public class fragment_add_Item extends Fragment implements MapDialog.GetLocationDialogInterface,View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener, fragment_login.GetUserIdInterface {
     Spinner sp_Category, sp_Subcategory;
     private RadioGroup rg_Condition;
     private RadioButton rb_New, rb_Used;
@@ -37,13 +43,17 @@ public class fragment_add_Item extends Fragment implements MapDialog.GetLocation
     TextView errorTextCategory, errorTextSubCategory;
     private boolean IsChecked = false;
     private FirebaseFirestore mDBRef;
+    private DocumentReference mDocRef;
+    private String item_id = null;
+    private String user_id = null;
+
     String Condition = null;
     String[] Kids_Accessories = {"-Select Sub-Category-", "Kids Furniture", "Toys", "Prams & Walkers", "Swings & Slides", "Kids Bikes", "Kids Accessories"};
     String[] Books_Sports = {"-Select Sub-Category-", "Books & Magazines", "Sports Equipment", "Gym & Fitness", "Musical Instruments", "Other Hobbies"};
     String[] Fashion_Beauty = {"-Select Sub-Category-", "Clothes", "Footwear", "Jewellery", "MakeUp", "Skin & Hair", "Watches", "Wedding Accessories", "Lawn & Pret", "Couture", "Other Fashion", "Accessories"};
     String[] Furniture_HomeDecor = {"-Select Sub-Category-", "Sofa & Chairs", "Beds & Wardrobes", "Home Decoration", "Tables & Dining", "Garden & Outdoor", "Painting & Mirrors", "Rugs & Carpets", "Curtains & Blinds", "Office Furniture", "Other Household Items"};
     String[] Animals = {"-Select Sub-Category-", "Animals", "Fish & Aquariums", "Birds", "Hens", "Cats", "Dogs", "Livestock", "Pet Food & Accessories", "Other Animals"};
-    String[] Bikes = {"-Select Sub-Category-", "Motorcycles", "Bicycles", "ATV &amp; Quads", "Scooters", "Spare Parts"};
+    String[] Bikes = {"-Select Sub-Category-", "Motorcycles", "Bicycles", "ATV & Quads", "Scooters", "Spare Parts"};
     String[] Electronics_HomeAppliances = {"-Select Sub-Category-", "AC & Coolers", "Fridges & Freezers", "Washing Machines & Dryers", "kitchen Appliances", "Generators,UPS & Power Solutions", "Cameras & Accessories", "TV, Video & Audio", "Other Home Appliances", "Electronics"};
     String[] Vehicles = {"-Select Sub-Category-", "Cars", "Cars Accessories", "Spare Parts", "Rickshaw & Chingchi", "Other Vehicles"};
     String[] Software_Games = {"-Select Sub-Category-", "Games", "Windows", "Utility Software", "Software Development", "Designing & Printing"};
@@ -64,12 +74,64 @@ String[] SubCategory={"-Select Category first-"};
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add__item, container, false);
-
+        checkLogin();
         InitViews(view);
 mDBRef=FirebaseFirestore.getInstance();
+        CheckBundle();
+
+
+
 
         return view;
     }
+
+    private void CheckBundle() {
+        Bundle bundle=this.getArguments();
+        if(bundle!=null){
+
+            item_id=bundle.getString("item_id",null);
+            if(item_id!=null){
+
+            mDBRef.collection("items").document(item_id).get()
+                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            Item_info item=documentSnapshot.toObject(Item_info.class);
+                            edt_Name.getEditText().setText(item.getItem_name());
+                            edt_Brand.getEditText().setText(item.getBrand_name());
+                            edt_Price.getEditText().setText(String.valueOf(item.getPrice()));
+                            edt_Description.getEditText().setText(item.getDescription());
+                            String condition=item.getCondition();
+                            if(condition.equals("Used")){
+                                rb_Used.setChecked(true);
+                            }else {
+                                rb_New.setChecked(true);
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+            }
+        }
+    }
+
+    private void checkLogin() {
+        SharedPreferences checkUserId = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
+        user_id = checkUserId.getString(getString(R.string.DOCUMENT_ID), "");
+        if (user_id.equals("")) {
+            fragment_login login = new fragment_login();
+            login.setTargetFragment(fragment_add_Item.this, 1);
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .replace(R.id.fragment_container, login)
+                    .addToBackStack(null).commit();
+
+        }
+    }
+
 
 
     private void InitViews(View view) {
@@ -189,7 +251,7 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
     return;
 }else {
     ////////////////////////////////////
-    String key = "unihRmGR3h6UtXGi3HJ8";/////////
+  /////////
     ////////////////////////////////////
     String category = sp_Category.getSelectedItem().toString();
     String sub_category = sp_Subcategory.getSelectedItem().toString();
@@ -197,8 +259,17 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
     String brand_name = edt_Brand.getEditText().getText().toString().trim();
     int price=Integer.parseInt(edt_Price.getEditText().getText().toString().trim());
     String item_description = edt_Description.getEditText().getText().toString().trim();
-    Item_info addItem=new Item_info(key,latitude,longitude,category,sub_category,item_name,brand_name,Condition,price,item_description);
-    mDBRef.collection("items").document().set(addItem)
+    Item_info addItem=new Item_info(user_id,latitude,longitude,category,sub_category,item_name,brand_name,Condition,price,item_description);
+
+    if (item_id != null) {
+        mDocRef = mDBRef.collection("items").document(item_id);
+    } else {
+        mDocRef = mDBRef.collection("items").document();
+
+    }
+
+
+   mDocRef.set(addItem)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -215,7 +286,7 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
 
  case R.id.btn_item_location:
                 MapDialog mapDialog = new MapDialog();
-                mapDialog.setTargetFragment(fragment_add_Item.this, 2);
+                mapDialog.setTargetFragment(fragment_add_Item.this, 5);
                 mapDialog.setCancelable(false);
                 mapDialog.show(getActivity().getSupportFragmentManager(), "MapDialog");
                 break;
@@ -339,6 +410,11 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
         latitude = lat;
         longitude = lng;
         btn_Item_Location.setText("Location Saved");
-        btn_Item_Location.setTextColor(getResources().getColor(R.color.colorPrimary));
+        btn_Item_Location.setTextColor(getResources().getColor(R.color.ColorPrimary));
+    }
+
+    @Override
+    public void OnUidGet(String u_id) {
+        user_id=u_id;
     }
 }

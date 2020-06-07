@@ -18,7 +18,7 @@
             android:orientation="vertical">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
                 android:layout_margin="5dp">
@@ -28,7 +28,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_get_location_btn"
                     android:text="Click to get Location"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                     android:drawableEnd="@drawable/icon_gps"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"/>
@@ -53,44 +53,45 @@
                 android:id="@+id/edt_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
+                   android:hint="Item Name"
+
           >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item Name"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="@color/ColorPrimary" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_brand_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
+                    android:hint="Brand Name"
           >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Brand Name"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                />
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Condition"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/ColorPrimary"/>
             <RadioGroup
                 android:id="@+id/rg_condition"
                 android:layout_width="match_parent"
@@ -103,50 +104,50 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/ColorPrimary"/>
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_used"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Used"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/ColorPrimary"/>
 
             </RadioGroup>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="8"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
+                    android:hint="price"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="price"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                     />
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edt_item_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/colorPrimary"
+                    android:textColorHint="@color/ColorPrimary"
                     app:counterEnabled="true"
                     app:counterMaxLength="200"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/app_red"
+                        android:hint="Description"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Description"
                         android:inputType="textMultiLine"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/ColorPrimary"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,7 +164,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button"
                 android:text="save"
-                android:textColor="@color/app_yellowish"
+                android:textColor="@color/ColorPrimary"
                 android:textStyle="bold" />
 
 

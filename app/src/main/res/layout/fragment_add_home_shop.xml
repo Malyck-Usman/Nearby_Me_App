@@ -1,366 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_add_home_shop"
     android:orientation="vertical"
-    >
-    <LinearLayout
-        android:id="@+id/switch_btn_layout"
+    tools:context=".fragment_add_home_shop">
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/colorPrimary"
-        android:gravity="end">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"/>
-        <androidx.appcompat.widget.SwitchCompat
-             android:id="@+id/sw_home_shop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOff="H"
-            android:textOn="S"
-            app:showText="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Shop"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-    </LinearLayout>
-
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@+id/switch_btn_layout"
-    app:layout_constraintStart_toStartOf="parent"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/fragment_add_layout_margin"
-        >
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            android:layout_margin="5dp">
-            <Button
-                android:id="@+id/btn_home_shop_location"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/fragment_add_layout_margin"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_get_location_btn"
-                android:text="Click to get Location"
-                android:textColor="@color/colorPrimary"
-                android:drawableEnd="@drawable/icon_gps"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"/>
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
+
+                <Button
+                    android:id="@+id/btn_home_shop_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_get_location_btn"
+                    android:drawableEnd="@drawable/icon_gps"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Click to get Location"
+                    android:textColor="@color/ColorPrimary" />
 
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_dimensions"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            android:textColorHint="@color/colorPrimary"
-            app:counterEnabled="true"
-            app:counterMaxLength="7"
-
-
-
-            >
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_dimensions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="dimensions in feet (ie: 30x40)"
-                android:inputType="text"
-                android:textColor="@color/colorPrimary"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_area"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="5"
-            app:counterEnabled="true"
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-
-            >
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Total Area (ie: Marla)"
-                android:inputType="numberDecimal"
-                android:textColor="@color/colorPrimary"
-                />
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="5"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
 
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_covered_area"
-            app:layout_constraintTop_toBottomOf="@+id/edt_area"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="5"
-            app:counterEnabled="true"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/ColorPrimary" />
 
 
-            >
-            <com.google.android.material.textfield.TextInputEditText
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_covered_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Covered Area (ie: Marla)"
-                android:inputType="numberDecimal"
-                android:textColor="@color/colorPrimary"
-                />
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="5"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_rent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_covered_area"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="7"
-            app:counterEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
+                app:layout_constraintTop_toBottomOf="@+id/edt_area"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/ColorPrimary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_rent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Rent amount"
-                android:inputType="number"
-                android:textColor="@color/colorPrimary"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_security"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="7"
-            app:counterEnabled="true">
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_covered_area">
 
-            <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_security"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Security amount"
-                android:inputType="number"
-                android:textColor="@color/colorPrimary" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_floor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_rent"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="10"
-            app:counterEnabled="true"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="7"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_floor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="floor (ie ground ,first etc)"
-                android:inputType="text"
-                android:textColor="@color/colorPrimary"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_no_of_rooms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_rent"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="3"
-            app:counterEnabled="true"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_rent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_no_of_rooms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No of rooms"
-                android:inputType="number"
-                android:textColor="@color/colorPrimary"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_no_of_baths"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_no_of_rooms"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="3"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+                app:counterMaxLength="3"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_rent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_no_of_baths"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No of bathrooms "
-                android:inputType="number"
-                android:textColor="@color/colorPrimary"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_no_of_kitchen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_no_of_baths"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="3"
-            app:counterEnabled="true"
-            >
-            <com.google.android.material.textfield.TextInputEditText
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="3"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_no_of_rooms">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ColorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_no_of_kitchen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No of kitchens "
-                android:inputType="number"
-                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="3"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_no_of_baths">
 
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edt_description_home_shop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:errorTextColor="@color/app_red"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_no_of_kitchen"
-            android:textColorHint="@color/colorPrimary"
-            app:counterMaxLength="200"
-            app:counterEnabled="true"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ColorPrimary"
 
-            >
-            <com.google.android.material.textfield.TextInputEditText
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_description_home_shop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description"
-                android:inputType="textMultiLine"
+                android:textColorHint="@color/ColorPrimary"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red"
+                app:layout_constraintStart_toStartOf="parent"
 
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toBottomOf="@+id/edt_no_of_kitchen">
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_finishing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Finishing"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_store"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="store"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"
-            />
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_parking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="parking"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"
-            />
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_furnished"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="furnished"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"
-            />
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_gas_connection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gas Connection"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_water_connection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Water Connection"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_garage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Garage"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-            android:layout_marginTop="@dimen/chk_margin_top"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/cb_lawn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lawn"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="start"
-     android:layout_marginTop="@dimen/chk_margin_top"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_finishing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Finishing"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="store"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_parking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="parking"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_furnished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="furnished"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_gas_connection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Gas Connection"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_water_connection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Water Connection"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_garage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Garage"
+                android:textColor="@color/ColorPrimary" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_lawn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/chk_margin_top"
+                android:text="Lawn"
+                android:textColor="@color/ColorPrimary" />
 
 
-        <Button
-            android:id="@+id/btn_save_home_shop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:textColor="@color/app_yellowish"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="save"/>
+            <Button
+                android:id="@+id/btn_save_home_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_button"
+                android:text="save"
+                android:textColor="@color/ColorPrimary"
+                android:textStyle="bold" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,8 @@ package com.example.nearbyme.Model;
 
 public class Restaurant_info {
     private String user_id;
+    private String res_id;
+    private String dish_id;
     private double latitude;
     private double longitude;
     private String res_type;
@@ -38,6 +40,22 @@ public class Restaurant_info {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getRes_id() {
+        return res_id;
+    }
+
+    public void setRes_id(String res_id) {
+        this.res_id = res_id;
+    }
+
+    public String getDish_id() {
+        return dish_id;
+    }
+
+    public void setDish_id(String dish_id) {
+        this.dish_id = dish_id;
     }
 
     public double getLatitude() {

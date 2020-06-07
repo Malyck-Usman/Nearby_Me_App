@@ -1,98 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment_home"
-    android:background="#000000">
-<com.google.android.material.appbar.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="200dp">
-    <com.google.android.material.appbar.CollapsingToolbarLayout
+    android:background="@drawable/bg_gradient">
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_scrollFlags="exitUntilCollapsed|scroll"
-        app:contentScrim="@color/colorPrimary"
-        android:background="@drawable/img_dashboardheader"
-        app:title="Title here"
-        app:expandedTitleMarginEnd="48dp"
-        app:expandedTitleMarginBottom="60dp">
+        android:layout_height="160dp">
 
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/img_dashboardheader"
+            app:contentScrim="@color/ColorPrimary"
+            app:expandedTitleMarginBottom="60dp"
+            app:expandedTitleMarginEnd="48dp"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            app:title="Title here">
 
-</com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/fab_services"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:fabSize="mini"
-    android:layout_gravity="bottom|right"
-    android:layout_marginRight="40dp"
-    android:layout_marginBottom="100dp"
-    android:src="@drawable/icon_services"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_services"
+
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_restaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="150dp"
-        android:src="@drawable/icon_restaurants"/>
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_restaurants"
+
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_home_shop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="200dp"
-        android:src="@drawable/icon_home_shop_for_rent"/>
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_home_shop_for_rent"
+
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabCustomSize="65dp"
-        android:backgroundTintMode="src_atop"
-        android:backgroundTint="@color/app_yellowish"
+        android:layout_gravity="bottom|right"
         android:layout_margin="25dp"
+        android:backgroundTint="@color/secondary"
+        android:backgroundTintMode="src_atop"
         android:elevation="@dimen/view_elevation"
         android:src="@drawable/icon_add"
-        android:layout_gravity="bottom|right"
-        />
+        app:fabCustomSize="65dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_buy_sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="100dp"
         android:layout_marginBottom="40dp"
-        android:src="@drawable/icon_buysell"/>
+
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_buy"
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_home_store"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="150dp"
+
         android:layout_marginBottom="40dp"
-        android:src="@drawable/icon_homestore"/>
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_homestore"
+        app:fabSize="mini" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_announcements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
         android:layout_gravity="bottom|right"
         android:layout_marginRight="200dp"
         android:layout_marginBottom="40dp"
-        android:src="@drawable/icon_announcement"/>
 
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_announcement"
+        app:fabSize="mini" />
 
-
-   
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -103,293 +119,326 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:padding="@dimen/view_padding_low"
-            android:clipToPadding="false">
+            android:padding="@dimen/view_padding_low">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:clipToPadding="false"
                 android:gravity="center"
-                android:clipToPadding="false">
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvHomeShop"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground"
+                 >
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                     >
 
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_home_shop_for_rent"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_home_shop_for_rent" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Home/Shop"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Home/Shop"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="find home/shop available for rent"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center_horizontal"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Find home/shop for rent"
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvRestaurantsHotels"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                        >
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_restaurants"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_restaurants" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Restaurant/Hotels"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Restaurant"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="find nearby restaurants/hotels"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Find  restaurants \n"
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:clipToPadding="false"
                 android:gravity="center"
-                android:clipToPadding="false">
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvServices"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:orientation="vertical"
-                        android:gravity="center">
+                       >
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="16dp"/>
+
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_services"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_services" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Services"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Services"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="find the service you need"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center_horizontal"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Find  service "
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvBuySell"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_buysell"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_buy" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Buy/Sell"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Buy"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="buy/sell goods nearby"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Find items to buy "
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:clipToPadding="false"
                 android:gravity="center"
-                android:clipToPadding="false">
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvHomeStores"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_homestore"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_homestore" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Home Store"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Home Store"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="find nearby home stores"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center_horizontal"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Find home stores\n"
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cdvAnnouncements"
                     android:layout_width="@dimen/dashboardMenuWidth"
                     android:layout_height="@dimen/dashboardMenuHeight"
-                    android:elevation="@dimen/view_elevation"
                     android:layout_margin="@dimen/dashboard_Menu_Margin"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    >
+                    android:elevation="@dimen/view_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/icon_announcement"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:layout_margin="@dimen/dashboard_view_margins"
+                            android:src="@drawable/icon_announcement" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Announcement"
-                            android:textSize="@dimen/dashboard_menu_textsize"
-                            android:textColor="@color/colorAccent"
-                            android:textStyle="bold"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Announcement"
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/dashboard_menu_textsize"
+                            android:textStyle="bold" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dashboard_menu_ruler_height"
-                            android:background="@color/app_yellowish"/>
+                            android:background="@color/secondary" />
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="make announcement to reach narby people"
+                            android:layout_margin="@dimen/dashboard_view_margins"
                             android:gravity="center"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_margin="@dimen/dashboard_view_margins"/>
+                            android:text="Check For an announcement"
+                            android:textColor="@color/ColorPrimary" />
 
                     </LinearLayout>
 
@@ -400,7 +449,6 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

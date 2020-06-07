@@ -2,6 +2,7 @@ package com.example.nearbyme.Model;
 
 public class Home_info {
     private String user_id;
+    private String home_id;
     private double latitude;
     private double longitude;
     private float total_area;
@@ -40,6 +41,14 @@ public class Home_info {
         this.water = water;
         this.garage = garage;
         this.lawn = lawn;
+    }
+
+    public String getHome_id() {
+        return home_id;
+    }
+
+    public void setHome_id(String home_id) {
+        this.home_id = home_id;
     }
 
     public String getUser_id() {

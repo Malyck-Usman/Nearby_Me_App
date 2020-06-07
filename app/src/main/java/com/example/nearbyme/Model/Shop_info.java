@@ -2,6 +2,7 @@ package com.example.nearbyme.Model;
 
 public class Shop_info {
     private String user_id;
+    private String shop_id;
     private double latitude;
     private double longitude;
     private String dimension;
@@ -36,6 +37,14 @@ public class Shop_info {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getShop_id() {
+        return shop_id;
+    }
+
+    public void setShop_id(String shop_id) {
+        this.shop_id = shop_id;
     }
 
     public double getLatitude() {

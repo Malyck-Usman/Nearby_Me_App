@@ -2,6 +2,7 @@ package com.example.nearbyme.Model;
 
 public class Service_info {
     private String user_id;
+    private String service_id;
     private double latitude;
     private double longitude;
     private String service_type;
@@ -32,6 +33,14 @@ public class Service_info {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getService_id() {
+        return service_id;
+    }
+
+    public void setService_id(String service_id) {
+        this.service_id = service_id;
     }
 
     public double getLatitude() {

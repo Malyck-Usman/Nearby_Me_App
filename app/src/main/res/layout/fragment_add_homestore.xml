@@ -21,7 +21,7 @@
             >
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="4dp"
                 android:layout_margin="5dp">
@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_get_location_btn"
                     android:text="Click to get Location"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                     android:drawableEnd="@drawable/icon_gps"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"/>
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="25">
                 <com.google.android.material.textfield.TextInputEditText
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Store Name"
                     android:inputType="text"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <EditText
@@ -70,8 +70,8 @@
                 android:layout_marginBottom="12dp"
                 android:hint="Opening time"
                 android:inputType="none"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary" />
+                android:textColor="@color/ColorPrimary"
+                android:textColorHint="@color/ColorPrimary" />
 
             <EditText
                 android:id="@+id/edt_store_closing_time"
@@ -80,8 +80,8 @@
                 android:layout_marginBottom="5dp"
                 android:hint="Closing time"
                 android:inputType="none"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary"
+                android:textColor="@color/ColorPrimary"
+                android:textColorHint="@color/ColorPrimary"
 
                 />
             <com.google.android.material.textfield.TextInputLayout
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
-                android:textColorHint="@color/colorPrimary"
+                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="200">
                 <com.google.android.material.textfield.TextInputEditText
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Description"
                     android:inputType="textMultiLine"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/ColorPrimary"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_button"
-                android:textColor="@color/app_yellowish"
+                android:textColor="@color/ColorPrimary"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:text="save"/>

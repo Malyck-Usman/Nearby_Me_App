@@ -3,8 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="#284aa4"
-    android:padding="16dp"
+    android:background="@color/secondary"
     android:gravity="center_horizontal"
     >
 <ImageView
@@ -13,18 +12,35 @@
     android:layout_height="90dp"
     android:src="@drawable/logo"/>
 <TextView
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
     android:text="Nearby Me"
     android:textSize="@dimen/Textsize"
-    android:textColor="@color/app_yellowish"
+    android:textColor="@color/on_secondary_light"
 />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Get The Things Done!!!"
         android:textSize="14sp"
-        android:textColor="@color/app_yellowish" />
+        android:textColor="@color/on_secondary_light_two" />
+
+    <TextView
+        android:id="@+id/tv_nav_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="10dp"
+        android:drawableEnd="@drawable/icon_right_login_user"
+        android:gravity="start|bottom"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/on_secondary"
+        android:textSize="16dp"
+        />
 
 
 </LinearLayout>

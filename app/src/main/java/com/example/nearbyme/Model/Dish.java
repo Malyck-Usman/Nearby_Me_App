@@ -1,6 +1,7 @@
 package com.example.nearbyme.Model;
 
 public class Dish {
+
     private String dish_name;
     private String dish_price;
 
@@ -11,6 +12,8 @@ public class Dish {
         this.dish_name = dish_name;
         this.dish_price = dish_price;
     }
+
+
 
     public String getDish_name() {
         return dish_name;

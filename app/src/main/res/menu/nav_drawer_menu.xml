@@ -9,31 +9,32 @@
         <item
             android:id="@+id/nav_home"
             android:title="Home"
-            android:icon="@drawable/menu_icon_home"/>
+            android:icon="@drawable/menu_icon_home"
+            />
         <item
             android:id="@+id/nav_homeshop"
-            android:title="Home/Shop for rent"
+            android:title="Find Home/Shop for rent"
             android:icon="@drawable/menu_icon_home_shop_for_rent"/>
         <item
             android:id="@+id/nav_restaurents"
-            android:title="Restaurants"
+            android:title="Find Restaurants"
             android:icon="@drawable/menu_icon_restaurants"/>
         <item
             android:id="@+id/nav_services"
-            android:title="Services"
+            android:title="Find Services"
             android:icon="@drawable/menu_icon_services"/>
         <item
             android:id="@+id/nav_buysell"
-            android:title="Buy/sell"
+            android:title="Buy Items"
             android:icon="@drawable/menu_icon_buy_sell"/>
 
         <item
             android:id="@+id/nav_homestores"
-            android:title="Home Stores"
+            android:title="Find Home Stores"
             android:icon="@drawable/menu_icon_homestore"/>
         <item
             android:id="@+id/nav_announcement"
-            android:title="Make Announcement"
+            android:title="View Announcement"
             android:icon="@drawable/menu_icon_announcement"/>
 
     </group>
@@ -72,6 +73,12 @@
 
 
 
+        </menu>
+    </item>
+    <item android:title="Dashboard">
+        <menu>
+<item android:id="@+id/nav_user_dashboard"
+    android:title="User Dashboard"/>
         </menu>
     </item>
 

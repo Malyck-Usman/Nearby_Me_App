@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#284aa4</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+<!--    <color name="ColorPrimary">#284aa4</color>-->
+    <color name="ColorPrimary">#0d3ff4</color>
+    <color name="primary_light">#6d6bff</color>
+    <color name="primary_dark">#0017c0</color>
+
+    <color name="secondary">#f4c20d</color>
+    <color name="secondary_light">#fff452</color>
+    <color name="secondary_dark">#bd9200</color>
+
+    <color name="third">#4e0df4</color>
+    <color name="fourth">#0db3f4</color>
+    <color name="fifth">#c20df4</color>
+
+    <color name="on_secondary">#000000</color>
+    <color name="on_secondary_light">#AD000000</color>
+    <color name="on_secondary_light_two">#73000000</color>
+
+    <color name="on_primary">#ffffff</color>
+    <color name="on_primary_light">#C2ffffff</color>
+    <color name="on_primary_light_two">#8Cffffff</color>
+
+
+    <color name="app_red">#f9493d</color>
+
     <color name="colorAccent">#f4c20d</color>
     <color name="colorOnPrimary">#ffffff</color>
     <color name="app_green">#2cb14f</color>
-    <color name="app_red">#f9493d</color>
-    <color name="app_yellowish">#f4c20d</color>
+    <color name="text_color_grey">#9E9E9E</color>
+
 
 </resources>
