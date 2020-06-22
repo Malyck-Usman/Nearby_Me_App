@@ -86,6 +86,8 @@ public class fragment_home_shop extends Fragment implements OnMapReadyCallback, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).setActionBarTitle("Find Home");
+
         if (view == null) {
 
 
@@ -288,7 +290,7 @@ public class fragment_home_shop extends Fragment implements OnMapReadyCallback, 
                                             textshop.setTextSize(12);
                                             //  text.setGravity(Gravity.BOTTOM|Gravity.RIGHT);
                                             IconGenerator generator = new IconGenerator(getActivity());
-                                            generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_home));
+                                            generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_shop));
                                             generator.setContentView(textshop);
                                             Bitmap icon = generator.makeIcon();
 

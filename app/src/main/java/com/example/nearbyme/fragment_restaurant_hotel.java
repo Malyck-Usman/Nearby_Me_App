@@ -194,7 +194,7 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
                                         text.setTextSize(12);
                                         //  text.setGravity(Gravity.BOTTOM|Gravity.RIGHT);
                                         IconGenerator generator = new IconGenerator(getActivity());
-                                        generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_home));
+                                        generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_restaurant));
                                         generator.setContentView(text);
                                         Bitmap icon = generator.makeIcon();
 

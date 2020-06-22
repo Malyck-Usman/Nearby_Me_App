@@ -185,7 +185,7 @@ public class fragment_buy_sell extends Fragment implements OnMapReadyCallback,Vi
                                         text.setTextSize(12);
                                         //  text.setGravity(Gravity.BOTTOM|Gravity.RIGHT);
                                         IconGenerator generator = new IconGenerator(getActivity());
-                                        generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_home));
+                                        generator.setBackground(getActivity().getDrawable(R.drawable.marker_icon_buy));
                                         generator.setContentView(text);
                                         Bitmap icon = generator.makeIcon();
 

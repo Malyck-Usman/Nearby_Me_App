@@ -12,44 +12,50 @@
     <LinearLayout
         android:id="@+id/top_layout_buy"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginTop="3dp"
+        android:layout_height="109dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/ColorPrimary">
+        <View
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_height="35dp">
 
             <Button
                 android:id="@+id/btn_find_location_buy"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_get_location_btn"
+                android:background="@drawable/bg_buttons_top"
                 android:drawableEnd="@drawable/icon_gps"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="Click to get Location From Map"
-                android:textColor="@color/ColorPrimary" />
+                android:textColor="@color/secondary"  />
 
 
         </androidx.cardview.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_height="35dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/bg_buttons_top"
                 android:orientation="horizontal"
                 android:weightSum="10">
 
@@ -73,26 +79,27 @@
                     android:layout_weight="2"
                     android:gravity="center_horizontal|center_vertical"
                     android:hint="Radius"
-                    android:textColor="@color/ColorPrimary"
-                    android:textColorHint="@color/ColorPrimary"
+                    android:textColor="@color/secondary"
+                    android:textColorHint="@color/secondary"
                     android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
 
+            />
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
+            android:layout_height="35dp">
 
             <Button
                 android:id="@+id/btn_search_buy"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_get_location_btn"
+                android:background="@drawable/bg_buttons_top"
                 android:text="Search"
-                android:textColor="@color/ColorPrimary" />
+                android:textColor="@color/secondary" />
         </androidx.cardview.widget.CardView>
 
 
