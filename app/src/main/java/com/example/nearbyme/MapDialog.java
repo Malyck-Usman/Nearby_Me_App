@@ -1,7 +1,6 @@
 package com.example.nearbyme;
 
 
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,18 +39,15 @@ public class MapDialog extends DialogFragment implements OnMapReadyCallback {
     MapView mv;
 
 
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater=getActivity().getLayoutInflater();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
 
 
-
-    view = inflater.inflate(R.layout.map_dialog_layout,null);
-    mLocationClient= LocationServices.getFusedLocationProviderClient(getActivity());
-
+        view = inflater.inflate(R.layout.map_dialog_layout, null);
+        mLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
 
         builder.setView(view)
@@ -65,46 +61,47 @@ public class MapDialog extends DialogFragment implements OnMapReadyCallback {
                 }).setPositiveButton("Get Location from Map", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-mLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-    @Override
-    public void onSuccess(Location location) {
-        double lat=location.getLatitude();
-        double lng=location.getLongitude();
-        locationDialogInterface.OnLocationGet(lat,lng);
+                mLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        double lat = location.getLatitude();
+                        double lng = location.getLongitude();
+                        locationDialogInterface.OnLocationGet(lat, lng);
 
 
-        Toast.makeText(getContext(),"Lat="+lat+"Lng="+lng,Toast.LENGTH_LONG).show();
-    }
-}).addOnFailureListener(new OnFailureListener() {
-    @Override
-    public void onFailure(@NonNull Exception e) {
-        Toast.makeText(getContext(),"Failed to get Location,Check your GPS and try again",Toast.LENGTH_LONG).show();
-    }
-});
+                        Toast.makeText(getContext(), "Lat=" + lat + "Lng=" + lng, Toast.LENGTH_LONG).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "Failed to get Location,Check your GPS and try again", Toast.LENGTH_LONG).show();
+                    }
+                });
 
             }
         });
 
 
-mv=view.findViewById(R.id.map_fragment);
-mv.onCreate(savedInstanceState);
-mv.getMapAsync(this);
+        mv = view.findViewById(R.id.map_fragment);
+        mv.onCreate(savedInstanceState);
+        mv.getMapAsync(this);
 
-       return builder.create();
+        return builder.create();
 
-  }
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        mGoogleMap=googleMap;
+        mGoogleMap = googleMap;
         mGoogleMap.setMyLocationEnabled(true);
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
-        Toast.makeText(getActivity(),"Map is showing on screen",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Map is showing on screen", Toast.LENGTH_SHORT).show();
 
 
     }
-  @Override
+
+    @Override
     public void onStart() {
         super.onStart();
         mv.onStart();
@@ -145,8 +142,9 @@ mv.getMapAsync(this);
         super.onLowMemory();
         mv.onLowMemory();
     }
-    public interface GetLocationDialogInterface{
-        void OnLocationGet(double lat,double lng);
+
+    public interface GetLocationDialogInterface {
+        void OnLocationGet(double lat, double lng);
     }
 
     @Override
@@ -154,9 +152,9 @@ mv.getMapAsync(this);
         super.onAttach(context);
         try {
 
-        locationDialogInterface=(GetLocationDialogInterface) getTargetFragment();
-        }catch (ClassCastException e){
-            throw new ClassCastException(context.toString()+"must implement GetLocationDialogInterface");
+            locationDialogInterface = (GetLocationDialogInterface) getTargetFragment();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + "must implement GetLocationDialogInterface");
         }
     }
 

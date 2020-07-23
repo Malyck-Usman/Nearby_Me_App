@@ -41,6 +41,7 @@ public class fragment_signup extends Fragment {
     TextInputLayout edt_Name, edt_Phone, edt_Email, edt_Password, edt_Conform_Password;
     Button btn_Signup;
     private FirebaseFirestore mDBRef;
+        String isAllowed;
 
 
     public fragment_signup() {
@@ -59,22 +60,37 @@ public class fragment_signup extends Fragment {
         btn_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("TAG","btn clicked");
                 if (!ValidateName() | !ValidateEmail() | !ValidatePhoneNo() | !ValidatePassword() | !ValidateConfirmPassword()) {
                     return;
-                } else if (!AllowedEmail()) {
-                    return;
                 }
+//                else if (AllowedEmail().equals("false")) {
+//                    Log.d("TAG","Allowed Email="+AllowedEmail());
+//                    return;
+//                }
+                Log.d("TAG","After Allowed email statement");
                 String name = edt_Name.getEditText().getText().toString().trim();
                 String phone_no = edt_Phone.getEditText().getText().toString().trim();
                 String e_mail = edt_Email.getEditText().getText().toString().trim();
                 String password = edt_Password.getEditText().getText().toString().trim();
 
+//                Log.d("TAG","edt user name"+name);
+//                Log.d("TAG","edt user phone no"+phone_no);
+//                Log.d("TAG","edt user email"+edt_Email);
+//                Log.d("TAG","edt user password"+edt_Password);
 
-                User user = new User(name, phone_no, e_mail, password);
+                User user = new User(name, phone_no, e_mail, password, true,"user");
+//                User user = new User(name, phone_no, e_mail, password);
+//                Log.d("TAG",user.getUser_name());
+//                Log.d("TAG",user.getE_mail());
+//                Log.d("TAG",user.getPhone_no());
+//                Log.d("TAG",user.getPassword());
+
 
 
                 mDBRef = FirebaseFirestore.getInstance();
                 String id = mDBRef.collection("users").document().getId();
+                Log.d("TAG","Document id of new user is"+id);
                 mDBRef.collection("users").document(id).set(user)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -91,10 +107,12 @@ public class fragment_signup extends Fragment {
                                 sp_login.apply();
 
 
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.d("TAG","failed to add data"+e.getMessage());
 
                     }
                 });
@@ -106,19 +124,28 @@ public class fragment_signup extends Fragment {
         return view;
     }
 
-    private boolean AllowedEmail() {
+    private String AllowedEmail() {
         String e_mail = edt_Email.getEditText().getText().toString().trim();
-        final boolean[] isAllowed = {false};
+        isAllowed = null;
         mDBRef.collection("users").whereEqualTo("e_mail", e_mail).get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                        if (queryDocumentSnapshots.isEmpty()) {
-                            edt_Email.getEditText().setError(null);
-                            isAllowed[0] = true;
-                        } else {
+                        if(!(queryDocumentSnapshots.isEmpty())) {
+                            Log.d("TAG","datasnapshot is notempty");
+                           // edt_Email.getEditText().setError(null);
                             edt_Email.setError("Email already used");
+
+                            isAllowed = "false";
+                            Log.d("TAG","is allowed in if statement"+isAllowed);
+
+
+                        }
+                        else {
+                             edt_Email.getEditText().setError(null);
+                             isAllowed="true";
+//                            edt_Email.setError("Email already used");
                         }
                     }
 
@@ -129,7 +156,12 @@ public class fragment_signup extends Fragment {
                 Toast.makeText(getContext(), "Failed to Connect to server, try again", Toast.LENGTH_LONG).show();
             }
         });
-        return isAllowed[0];
+//        while(isAllowed == null){
+//            Log.d("TAG","isAllowed is null"+isAllowed);
+//        }
+        Log.d("TAG","isAllowed is "+isAllowed);
+
+        return isAllowed;
     }
 
 

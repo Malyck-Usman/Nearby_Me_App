@@ -63,12 +63,6 @@ public class fragment_add_homestore extends Fragment implements View.OnClickList
         CheckBundle();
 
 
-
-
-
-
-
-
         edt_Store_Opening_Time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -262,7 +256,7 @@ public class fragment_add_homestore extends Fragment implements View.OnClickList
                     String store_type = sp_Store_Type.getSelectedItem().toString();
                     String store_name = edt_Store_Name.getEditText().getText().toString().trim();
                     String store_description = edt_Description.getEditText().getText().toString().trim();
-                    Home_Store_info addStoreInfo = new Home_Store_info(user_id, latitude, longitude, store_type, store_name, opening_hour, opening_minute, closing_hour, closing_minute, store_description);
+                    Home_Store_info addStoreInfo = new Home_Store_info(user_id, latitude, longitude, store_type, store_name, opening_hour, opening_minute, closing_hour, closing_minute, store_description,true);
                     if (hs_id != null) {
                         mDocRef = mDBRef.collection("store").document(hs_id);
                     } else {

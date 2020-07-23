@@ -8,7 +8,7 @@
     tools:context=".fragment_signup">
 <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,13 +34,15 @@
             android:hint="Name"
             android:layout_marginTop="50dp"
             app:errorEnabled="true"
-            app:errorTextColor="@color/app_red">
+            app:errorTextColor="@color/app_red"
+            android:textColorHint="@color/third"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textColor="@color/on_primary_light" />
+                android:textColor="@color/on_secondary_light" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile no (03*********)"
+            android:textColorHint="@color/third"
 
             app:counterEnabled="true"
             app:counterMaxLength="11"
@@ -63,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:textColor="@color/on_primary_light" />
+                android:textColor="@color/on_secondary_light" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +79,7 @@
 
             app:errorEnabled="true"
 
+            android:textColorHint="@color/on_secondary_light_two"
 
             app:errorTextColor="@color/app_red">
 
@@ -83,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/on_primary_light" />
+                android:textColor="@color/on_secondary_light" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,6 +100,7 @@
 
             app:errorEnabled="true"
             app:errorTextColor="@color/app_red"
+            android:textColorHint="@color/third"
 
             app:passwordToggleEnabled="true"
 
@@ -105,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="@color/on_primary_light" />
+                android:textColor="@color/on_secondary_light" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,6 +121,7 @@
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:errorTextColor="@color/app_red"
+            android:textColorHint="@color/third"
 
             app:passwordToggleEnabled="true"
 
@@ -127,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Confirm password"
                 android:inputType="textPassword"
-                android:textColor="@color/on_primary_light" />
+                android:textColor="@color/on_secondary_light" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,13 +141,16 @@
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button_primary_light"
+            android:background="@drawable/bg_button"
 android:layout_marginTop="20dp"
             android:text="Signup"
-            android:textColor="@color/third"
+            android:textColor="@color/ColorPrimary"
 
 
             />
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="6dp"/>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
 

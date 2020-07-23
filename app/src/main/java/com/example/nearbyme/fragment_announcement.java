@@ -127,7 +127,7 @@ public class fragment_announcement extends Fragment implements OnMapReadyCallbac
                         if (location != null) {
                             LocationGot = true;
                             btn_Search.setText("SEARCH");
-                            btn_Search.setTextColor(getResources().getColor(R.color.ColorPrimary));
+                            btn_Search.setTextColor(getResources().getColor(R.color.secondary));
                             //  btn_Find_Location.setTextColor(getResources().getColor(R.color.app_green));
                             User_Lat = location.getLatitude();
                             User_Lon = location.getLongitude();

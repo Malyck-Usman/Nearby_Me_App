@@ -1,29 +1,18 @@
 package com.example.nearbyme;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.Objects;
 
 
 public class fragment_home extends Fragment implements View.OnClickListener {
@@ -68,7 +57,7 @@ public class fragment_home extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.cdvRestaurantsHotels:
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_restaurant_hotel()).commit();
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_restaurant()).commit();
                 break;
             case R.id.cdvServices:
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_services()).commit();

@@ -145,7 +145,7 @@ public class fragment_homestores extends Fragment implements OnMapReadyCallback,
                         if (location != null) {
                             LocationGot = true;
                             btn_Search.setText("SEARCH");
-                            btn_Search.setTextColor(getResources().getColor(R.color.ColorPrimary));
+                            btn_Search.setTextColor(getResources().getColor(R.color.secondary));
                             //  btn_Find_Location.setTextColor(getResources().getColor(R.color.app_green));
                             User_Lat = location.getLatitude();
                             User_Lon = location.getLongitude();

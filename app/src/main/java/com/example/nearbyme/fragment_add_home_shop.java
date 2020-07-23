@@ -266,7 +266,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
                         int bathrooms = Integer.parseInt(edt_Bathrooms.getEditText().getText().toString());
                         int kitchens = checkKitchens();
                         String description = edt_Description.getEditText().getText().toString();
-                        Home_info insInfo = new Home_info(user_id, latitude, longitude, total_area, covered_area, rent_amount, security, floor, rooms, bathrooms, kitchens, description, furnished, gas, water, garage, lawn);
+                        Home_info insInfo = new Home_info(user_id, latitude, longitude, total_area, covered_area, rent_amount, security, floor, rooms, bathrooms, kitchens, description, furnished, gas, water, garage, lawn,true);
                         if (mHomeId != null) {
                             mDocRef = mDatabaseRef.collection("homes").document(mHomeId);
                         } else {
@@ -299,7 +299,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
                         String floor = edt_Floor.getEditText().getText().toString().trim();
                         String description = edt_Description.getEditText().getText().toString().trim();
 
-                        Shop_info ins_shop = new Shop_info(user_id, latitude, longitude, dimension, rent, security, floor, description, finishing, store, parking);
+                        Shop_info ins_shop = new Shop_info(user_id, latitude, longitude, dimension, rent, security, floor, description, finishing, store, parking,true);
                         if (mShopId != null) {
                             mDocRef = mDatabaseRef.collection("shop").document(mShopId);
                         } else {

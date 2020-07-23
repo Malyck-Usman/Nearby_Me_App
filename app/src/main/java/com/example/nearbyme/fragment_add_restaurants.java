@@ -56,7 +56,7 @@ import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class fragment_add_restaurants extends Fragment implements MapDialog.GetLocationDialogInterface, View.OnClickListener {
+public class fragment_add_restaurants extends Fragment implements MapDialog.GetLocationDialogInterface, View.OnClickListener, fragment_login.GetUserIdInterface {
     private static final int PICK_IMAGE_REQUEST = 10;
     private Uri filePath;
     private ProgressBar mProgressbar;
@@ -399,7 +399,8 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
                         , closing_minute
                         , res_description
                         , HomeDelivery
-                        , TableReservation);
+                        , TableReservation
+                ,true);
                 if (res_id != null) {
 
                     mDBDocRef = mDatabaseRef.collection("restaurants").document(res_id);
@@ -520,5 +521,11 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
         longitude = lng;
         btn_Res_Location.setText("Location Saved");
         btn_Res_Location.setTextColor(getResources().getColor(R.color.ColorPrimary));
+    }
+
+    @Override
+    public void OnUidGet(String u_id) {
+        Log.d("TAG", "User Id from interface is =" + u_id);
+        user_id = u_id;
     }
 }

@@ -181,7 +181,7 @@ public class fragment_add_services extends Fragment implements MapDialog.GetLoca
                     int experience = Integer.parseInt(edt_Experience.getEditText().getText().toString().trim());
                     int charges = Integer.parseInt(edt_Charges.getEditText().getText().toString().trim());
                     String store_description = edt_Description.getEditText().getText().toString().trim();
-                    Service_info addServiceInfo = new Service_info(user_id, latitude, longitude, service_type, speciality, experience, Charge_Type, charges, store_description);
+                    Service_info addServiceInfo = new Service_info(user_id, latitude, longitude, service_type, speciality, experience, Charge_Type, charges, store_description,true);
                     if (service_id != null) {
                         mDocRef = mDBRef.collection("services").document(service_id);
                     } else {

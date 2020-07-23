@@ -8,7 +8,7 @@
     tools:context=".fragment_dashboard">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_admin"
+        android:id="@+id/tab_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/menu_icon_announcement" />
-    </com.google.android.material.tabs.TabLayout>
 
+    </com.google.android.material.tabs.TabLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_dashboard"
         android:layout_width="match_parent"
@@ -60,10 +60,46 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_admin" />
+        app:layout_constraintTop_toBottomOf="@+id/tab_dashboard" />
 
 
 
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="30dp"
+
+        >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_notifications_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/secondary"
+        android:src="@drawable/icon_notification_blue"
+        app:fabSize="mini"
+
+
+
+       />
+        <TextView
+            android:id="@+id/tv_notification_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/on_primary"
+            android:background="@drawable/bg_fab_notifications_dashboard"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+
+            />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

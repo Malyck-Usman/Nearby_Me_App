@@ -12,11 +12,12 @@ public class Home_Store_info {
     private int closing_hour;
     private int closing_minute;
     private String description;
+    private boolean status;
 
     public Home_Store_info() {
     }
 
-    public Home_Store_info(String user_id, double latitude, double longitude, String store_type, String store_name, int opening_hour, int opening_minute, int closing_hour, int closing_minute, String description) {
+    public Home_Store_info(String user_id, double latitude, double longitude, String store_type, String store_name, int opening_hour, int opening_minute, int closing_hour, int closing_minute, String description,boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -27,6 +28,7 @@ public class Home_Store_info {
         this.closing_hour = closing_hour;
         this.closing_minute = closing_minute;
         this.description = description;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -115,5 +117,13 @@ public class Home_Store_info {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

@@ -82,7 +82,9 @@ public class Services_Adapter_Dashboard extends RecyclerView.Adapter<Services_Ad
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG", "delete successful");
+                                mServiceList.remove(position);
                                 notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, mServiceList.size());
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override

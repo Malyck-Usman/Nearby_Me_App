@@ -13,11 +13,12 @@ public class Shop_info {
     private boolean finishing;
     private boolean store;
     private boolean parking;
+    private boolean status;
 
     public Shop_info() {
     }
 
-    public Shop_info(String user_id, double latitude, double longitude, String dimension, int rent_amount, int security_amount, String floor, String description, boolean finishing, boolean store, boolean parking) {
+    public Shop_info(String user_id, double latitude, double longitude, String dimension, int rent_amount, int security_amount, String floor, String description, boolean finishing, boolean store, boolean parking, boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -29,6 +30,7 @@ public class Shop_info {
         this.finishing = finishing;
         this.store = store;
         this.parking = parking;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -125,5 +127,13 @@ public class Shop_info {
 
     public void setParking(boolean parking) {
         this.parking = parking;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

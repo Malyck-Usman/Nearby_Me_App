@@ -49,7 +49,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCallback,View.OnClickListener, SeekBar.OnSeekBarChangeListener  {
+public class fragment_restaurant extends Fragment implements OnMapReadyCallback, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private SeekBar sb_Radius;
     private TextView edt_Radius;
     private Button btn_Search, btn_Find_Location;
@@ -70,14 +70,9 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
     View view;
 
 
-
-
-    public fragment_restaurant_hotel() {
+    public fragment_restaurant() {
         // Required empty public constructor
     }
-
-
-
 
 
     @Override
@@ -86,8 +81,8 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
         // Inflate the layout for this fragment
         ((MainActivity) getActivity()).setActionBarTitle("Restaurants");
 
-        if(view==null) {
-             view = inflater.inflate(R.layout.fragment_restaurant_hotel, container, false);
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_restaurant_hotel, container, false);
             InitViews(view);
             mResList = new ArrayList<>();
             mResAdapter = new Restaurant_adapter(mResList, getContext());
@@ -99,11 +94,11 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
             SupportMapFragment supportMapFragment = SupportMapFragment.newInstance();
             getChildFragmentManager().beginTransaction().add(R.id.container_map_restaurant, supportMapFragment).commit();
             supportMapFragment.getMapAsync(this); //calls on map ready
-        }else {
+        } else {
 
         }
 
-    return view;
+        return view;
     }
 
     private void InitViews(View view) {
@@ -124,7 +119,7 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_find_location_restaurant:
                 sb_Radius.setEnabled(true);
                 mLocationClient.getLastLocation().addOnCompleteListener((Task<Location> task) -> {
@@ -134,11 +129,11 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
                         if (location != null) {
                             LocationGot = true;
                             btn_Search.setText("SEARCH");
-                            btn_Search.setTextColor(getResources().getColor(R.color.ColorPrimary));
+                            btn_Search.setTextColor(getResources().getColor(R.color.secondary));
                             //  btn_Find_Location.setTextColor(getResources().getColor(R.color.app_green));
                             User_Lat = location.getLatitude();
                             User_Lon = location.getLongitude();
-                           mResAdapter.getResLatLng(User_Lat, User_Lon);
+                            mResAdapter.getResLatLng(User_Lat, User_Lon);
                             mGoogleMap.setMyLocationEnabled(false);
                         } else {
                             btn_Find_Location.setText("First Select your location from map GPS button");
@@ -165,7 +160,7 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
                 break;
 
             case R.id.btn_search_restaurant:
-                if(!ValidateLocationBtn()){
+                if (!ValidateLocationBtn()) {
                     return;
                 }
                 mGoogleMap.clear();
@@ -277,18 +272,21 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
         CameraUpdate defaultUpdate = CameraUpdateFactory.newLatLngZoom(LatLngDefault, 5.5f);
         mGoogleMap.moveCamera(defaultUpdate);
     }
+
     private void changeConstOfMap() {
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone(constraintlayout);
         constraintSet.connect(R.id.container_map_restaurant, ConstraintSet.BOTTOM, R.id.rv_restaurant, ConstraintSet.TOP, 0);
         constraintSet.applyTo(constraintlayout);
     }
+
     private void addMarker() {
         mGoogleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(User_Lat, User_Lon))
                 .title("Me")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_me))).showInfoWindow();
     }
+
     private void DrawCircle(double radius) {
         if (latlng != null) {
 
@@ -300,24 +298,23 @@ public class fragment_restaurant_hotel extends Fragment implements OnMapReadyCal
                     .fillColor(Color.parseColor("#66f4c20d")));
         }
     }
-    private boolean ValidateLocationBtn(){
-        if(!LocationGot){
+
+    private boolean ValidateLocationBtn() {
+        if (!LocationGot) {
             btn_Search.setText("Select Location First");
             btn_Search.setTextColor(getResources().getColor(R.color.app_red));
             return false;
-        }
-        else return true;
+        } else return true;
 
     }
+
     @Override
     public void onDestroyView() {
         if (view.getParent() != null) {
-            ((ViewGroup)view.getParent()).removeView(view);
+            ((ViewGroup) view.getParent()).removeView(view);
         }
         super.onDestroyView();
     }
-
-
 
 
 }

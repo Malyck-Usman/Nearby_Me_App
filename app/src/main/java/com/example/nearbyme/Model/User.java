@@ -5,15 +5,30 @@ public class User {
     private String phone_no;
     private String e_mail;
     private String password;
+    private boolean status;
+    private String privilege;
+    private String user_id;
 
     public User() {
     }
 
-    public User(String user_name, String phone_no, String e_mail, String password) {
+    public User(String user_name, String phone_no, String e_mail, String password,boolean status,String privilege)
+     {
         this.user_name = user_name;
         this.phone_no = phone_no;
         this.e_mail = e_mail;
         this.password = password;
+        this.status=status;
+        this.privilege=privilege;
+
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getUser_name() {
@@ -47,5 +62,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(String privilege) {
+        this.privilege = privilege;
     }
 }

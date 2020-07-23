@@ -91,7 +91,9 @@ public class Home_Adapter_Dashboard extends RecyclerView.Adapter<Home_Adapter_Da
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG", "DocumentSnapshot successfully deleted!");
                                 // notifyDataSetChanged();
+                                mHomeList.remove(position);
                                 notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, mHomeList.size());
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

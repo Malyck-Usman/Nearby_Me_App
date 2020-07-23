@@ -31,6 +31,8 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.nearbyme.Model.User;
+import com.example.nearbyme.admin_panel.admin_panel;
+import com.example.nearbyme.admin_panel.fragment_admin_user_adds;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.GoogleMap;
@@ -131,6 +133,40 @@ public class MainActivity extends AppCompatActivity
 //           Fragment f = getSupportFragmentManager().findFragmentByTag("ResDetail");
 //            getSupportFragmentManager().beginTransaction().remove(f).commit();
 
+        } else if (fragInFrame instanceof fragment_home_shop
+                || fragInFrame instanceof fragment_add_home_shop
+                || fragInFrame instanceof fragment_homestores
+                || fragInFrame instanceof fragment_add_homestore
+                || fragInFrame instanceof fragment_services
+                || fragInFrame instanceof fragment_add_services
+                || fragInFrame instanceof fragment_buy_sell
+                || fragInFrame instanceof fragment_add_Item
+                || fragInFrame instanceof fragment_restaurant
+                || fragInFrame instanceof fragment_add_restaurants
+                || fragInFrame instanceof fragment_announcement
+                || fragInFrame instanceof fragment_add_announcement
+                || fragInFrame instanceof fragment_dashboard
+                || fragInFrame instanceof fragment_login
+
+
+        ) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_home()).commit();
+
+        } else if (fragInFrame instanceof fragment_home) {
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Exit Nearby Me")
+                    .setMessage("Are you sure you want to exit?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
         }
 //
 //        else{
@@ -175,7 +211,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_restaurents:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_restaurant_hotel()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_restaurant()).commit();
                 break;
             case R.id.nav_add_restaurant:
                 setTitle("add restaurants");
@@ -337,6 +373,12 @@ public class MainActivity extends AppCompatActivity
                     .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            if (!(documentSnapshot.exists())) {
+                                SharedPreferences.Editor edit=getSharedPreferences(getString(R.string.M_LOGIN_FILE),MODE_PRIVATE).edit();
+                                edit.putString(getString(R.string.DOCUMENT_ID),"");
+                                edit.apply();
+                                return;
+                            }
                             User user = documentSnapshot.toObject(User.class);
                             nav_user_name.setVisibility(View.VISIBLE);
                             nav_user_name.setText(user.getUser_name());

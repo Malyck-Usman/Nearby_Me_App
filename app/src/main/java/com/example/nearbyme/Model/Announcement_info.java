@@ -7,16 +7,18 @@ public class Announcement_info {
     private double longitude;
     private String subject;
     private String description;
+    private boolean status;
 
     public Announcement_info() {
     }
 
-    public Announcement_info(String user_id, double latitude, double longitude, String subject, String description) {
+    public Announcement_info(String user_id, double latitude, double longitude, String subject, String description,boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.subject = subject;
         this.description = description;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -65,5 +67,13 @@ public class Announcement_info {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

@@ -77,8 +77,9 @@ public class Item_Adapter_Dashboard extends RecyclerView.Adapter<Item_Adapter_Da
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG","delete successful");
+                                mItemList.remove(position);
                                 notifyItemRemoved(position);
-                                notifyDataSetChanged();
+                                notifyItemRangeChanged(position, mItemList.size());
                             }
                         });
             }

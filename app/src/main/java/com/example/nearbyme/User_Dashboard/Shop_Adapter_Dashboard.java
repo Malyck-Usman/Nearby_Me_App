@@ -84,7 +84,9 @@ public class Shop_Adapter_Dashboard extends RecyclerView.Adapter<Shop_Adapter_Da
                           public void onSuccess(Void aVoid) {
                               Log.d("TAG", "DocumentSnapshot successfully deleted!");
                               // notifyDataSetChanged();
+                              mShopList.remove(position);
                               notifyItemRemoved(position);
+                              notifyItemRangeChanged(position, mShopList.size());
                           }
                       })
                       .addOnFailureListener(new OnFailureListener() {

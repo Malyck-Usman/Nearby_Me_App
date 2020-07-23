@@ -8,17 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nearbyme.MapDialog;
 import com.example.nearbyme.R;
 
 import com.example.nearbyme.detail_fragments.fragment_detail_restaurant;
-import com.example.nearbyme.fragment_restaurant_hotel;
 
 
 import java.util.Calendar;

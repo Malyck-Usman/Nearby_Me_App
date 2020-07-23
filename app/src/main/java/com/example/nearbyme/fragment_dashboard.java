@@ -8,17 +8,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.nearbyme.Model.Announcement_info;
-import com.example.nearbyme.Model.HomeStore_Adapter;
 import com.example.nearbyme.Model.Home_Store_info;
 import com.example.nearbyme.Model.Home_info;
 import com.example.nearbyme.Model.Item_info;
@@ -32,9 +30,10 @@ import com.example.nearbyme.User_Dashboard.Item_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.Restaurant_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.Services_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.Shop_Adapter_Dashboard;
+import com.example.nearbyme.User_Dashboard.fragment_notifications;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.tabs.TabItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -49,10 +48,11 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_dashboard extends Fragment implements fragment_login.GetUserIdInterface {
-    ToggleButton sw_Home_Shop;
-
-    private TabLayout tab_Admin;
+public class fragment_dashboard extends Fragment implements fragment_login.GetUserIdInterface, View.OnClickListener {
+    private ToggleButton sw_Home_Shop;
+    private FloatingActionButton fab_notification;
+    private TextView tv_notification_badge;
+    private TabLayout tab_dashboard;
     private RecyclerView mRecyclerView;
     private List<Home_info> mHomeList;
     private List<Shop_info> mShopList;
@@ -72,6 +72,7 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
     private FirebaseFirestore mDBRef;
     private String user_id = null;
     private boolean isHome = true;
+    private int new_notification;
 
 
     public fragment_dashboard() {
@@ -84,12 +85,14 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        checkLogin();
-        ((MainActivity) getActivity()).setActionBarTitle("Dashboard");
-        InitViews(view);
+        Log.d("TAG", "before check login");
         mDBRef = FirebaseFirestore.getInstance();
-
-
+        checkLogin();
+        ((MainActivity) requireActivity()).setActionBarTitle("Dashboard");
+        InitViews(view);
+    //    tv_notification_badge = view.findViewById(R.id.tv_notification_badge);
+        Log.d("TAG", "Before GetNotification");
+      //  getNotificationCount();
         sw_Home_Shop.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (sw_Home_Shop.isChecked()) {
                 isHome = false;
@@ -104,7 +107,7 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
         getHomes();
 
 
-        tab_Admin.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab_dashboard.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 0) {
@@ -112,8 +115,6 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
                 } else {
                     sw_Home_Shop.setVisibility(View.INVISIBLE);
                 }
-
-
                 switch (tab.getPosition()) {
 
                     case 0:
@@ -166,10 +167,41 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
         return view;
     }
 
+    private void getNotificationCount() {
+        new_notification = 0;
+        Log.d("TAG", "User id is" + user_id);
+        mDBRef.collection("users").document(user_id).collection("notifications").whereEqualTo("read", false)
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
+                    new_notification = new_notification + 1;
+                }
+                if (new_notification != 0) {
+                    tv_notification_badge.setVisibility(View.VISIBLE);
+                    tv_notification_badge.setText(String.valueOf(new_notification));
+                }else {
+                    tv_notification_badge.setVisibility(View.GONE);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
     private void checkLogin() {
+        Log.d("TAG", "in check login");
         SharedPreferences checkUserId = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
         user_id = checkUserId.getString(getString(R.string.DOCUMENT_ID), "");
+        if(!(user_id.equals(""))){
+            getNotificationCount();
+        }
         if (user_id.equals("")) {
+            Log.d("TAG", "user id is empty");
+
             fragment_login login = new fragment_login();
             login.setTargetFragment(fragment_dashboard.this, 8);
             getActivity().getSupportFragmentManager().beginTransaction()
@@ -181,17 +213,13 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
     }
 
 
-
-
-
     private void InitViews(View view) {
-        tab_Admin = view.findViewById(R.id.tab_admin);
-//        tab_Announcement=view.findViewById(R.id.tab_announcement);
-//        tab_Home_Shop=view.findViewById(R.id.tab_home_shop);
-//       tab_Homestore =view.findViewById(R.id.tab_homestore);
-//       tab_Restaurant=view.findViewById(R.id.tab_restaurant);
-//       tab_Sell=view.findViewById(R.id.tab_sell);
-//       tab_Services=view.findViewById(R.id.tab_service);
+        tab_dashboard = view.findViewById(R.id.tab_dashboard);
+        fab_notification = view.findViewById(R.id.fab_notifications_dashboard);
+        fab_notification.setOnClickListener(this);
+
+        tv_notification_badge = view.findViewById(R.id.tv_notification_badge);
+
         mRecyclerView = view.findViewById(R.id.rv_dashboard);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mHomeList = new ArrayList<>();
@@ -306,27 +334,27 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
 
     private void getServices() {
         if (mServiceList.isEmpty()) {
-        mServiceAdapter = new Services_Adapter_Dashboard(mServiceList, getContext());
-        mRecyclerView.setAdapter(mServiceAdapter);
-        mDBRef.collection("services").whereEqualTo("user_id", user_id).get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
-                            String id = qds.getId();
-                            Service_info service = qds.toObject(Service_info.class);
-                            service.setService_id(id);
-                            mServiceList.add(service);
+            mServiceAdapter = new Services_Adapter_Dashboard(mServiceList, getContext());
+            mRecyclerView.setAdapter(mServiceAdapter);
+            mDBRef.collection("services").whereEqualTo("user_id", user_id).get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
+                                String id = qds.getId();
+                                Service_info service = qds.toObject(Service_info.class);
+                                service.setService_id(id);
+                                mServiceList.add(service);
+                            }
+                            mServiceAdapter.notifyDataSetChanged();
                         }
-                        mServiceAdapter.notifyDataSetChanged();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-            }
-        });
-    }
+                }
+            });
+        }
     }
 
     private void getItems() {
@@ -377,6 +405,18 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
 
     @Override
     public void OnUidGet(String u_id) {
-        user_id=u_id;
+        user_id = u_id;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab_notifications_dashboard) {
+            Bundle bundle=new Bundle();
+            bundle.putString("u_id",user_id);
+            fragment_notifications fn=new fragment_notifications();
+            fn.setArguments(bundle);
+
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fn).addToBackStack(null).commit();
+        }
     }
 }

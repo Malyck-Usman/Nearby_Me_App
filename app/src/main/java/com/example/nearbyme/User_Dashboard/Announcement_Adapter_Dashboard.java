@@ -72,7 +72,9 @@ public class Announcement_Adapter_Dashboard extends RecyclerView.Adapter<Announc
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG", "DocumentSnapshot successfully deleted!");
                                 // notifyDataSetChanged();
+                                mAnnList.remove(position);
                                 notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, mAnnList.size());
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

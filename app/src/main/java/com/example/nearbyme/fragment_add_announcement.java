@@ -126,7 +126,7 @@ public class fragment_add_announcement extends Fragment implements MapDialog.Get
 
                 String subject = edt_Subject.getEditText().getText().toString();
                 String description = edt_Description.getEditText().getText().toString().trim();
-                Announcement_info addAnnouncementInfo = new Announcement_info(user_id, latitude, longitude, subject, description);
+                Announcement_info addAnnouncementInfo = new Announcement_info(user_id, latitude, longitude, subject, description,true);
                 if (ann_id != null) {
                     mDocRef = mDBRef.collection("announcements").document(ann_id);
                 } else {

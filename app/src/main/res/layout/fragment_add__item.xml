@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment_add_Item">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,22 +17,24 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/fragment_add_layout_margin"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="4dp"
-                android:layout_margin="5dp">
+                app:cardElevation="4dp">
+
                 <Button
                     android:id="@+id/btn_item_location"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_get_location_btn"
-                    android:text="Click to get Location"
-                    android:textColor="@color/ColorPrimary"
                     android:drawableEnd="@drawable/icon_gps"
+                    android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:paddingLeft="10dp"/>
+                    android:text="Click to get Location"
+                    android:textColor="@color/third" />
 
 
             </androidx.cardview.widget.CardView>
@@ -41,26 +44,44 @@
                 android:id="@+id/sp_item_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp" />
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/sp_sub_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+               />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Item Name"
+                android:textColorHint="@color/third"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
-                   android:hint="Item Name"
 
-          >
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_brand_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Brand Name"
+                android:textColorHint="@color/third"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:errorEnabled="true"
+                app:errorTextColor="@color/app_red">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -68,30 +89,13 @@
                     android:inputType="text"
                     android:textColor="@color/ColorPrimary" />
             </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edt_brand_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/ColorPrimary"
-                app:counterEnabled="true"
-                app:counterMaxLength="25"
-                app:errorEnabled="true"
-                app:errorTextColor="@color/app_red"
-                    android:hint="Brand Name"
-          >
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textColor="@color/ColorPrimary"
-               />
-            </com.google.android.material.textfield.TextInputLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Condition"
-                android:textColor="@color/ColorPrimary"/>
+                android:textColor="@color/third" />
+
             <RadioGroup
                 android:id="@+id/rg_condition"
                 android:layout_width="match_parent"
@@ -99,62 +103,60 @@
                 android:layout_marginTop="8dp"
 
                 >
+
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_new"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New"
-                    android:textColor="@color/ColorPrimary"/>
+                    android:textColor="@color/third" />
+
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_used"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Used"
-                    android:textColor="@color/ColorPrimary"/>
+                    android:textColor="@color/third" />
 
             </RadioGroup>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_item_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="price"
+                android:textColorHint="@color/third"
                 app:counterEnabled="true"
                 app:counterMaxLength="8"
                 app:errorEnabled="true"
-                app:errorTextColor="@color/app_red"
-                    android:hint="price"
-                >
+                app:errorTextColor="@color/app_red">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textColor="@color/ColorPrimary"
+
                     />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edt_item_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/ColorPrimary"
+                    android:hint="Description"
+                    android:textColorHint="@color/third"
                     app:counterEnabled="true"
                     app:counterMaxLength="200"
                     app:errorEnabled="true"
-                    app:errorTextColor="@color/app_red"
-                        android:hint="Description"
-                    >
+                    app:errorTextColor="@color/app_red">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
-                        android:textColor="@color/ColorPrimary"
-                        />
+                        android:textColor="@color/ColorPrimary" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
             <Button
@@ -171,7 +173,6 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,11 +12,12 @@ public class Item_info {
     private String condition;
     private int price;
     private String description;
+    private boolean status;
 
     public Item_info() {
     }
 
-    public Item_info(String user_id, double latitude, double longitude, String category, String sub_category, String item_name, String brand_name, String condition, int price, String description) {
+    public Item_info(String user_id, double latitude, double longitude, String category, String sub_category, String item_name, String brand_name, String condition, int price, String description,boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -27,6 +28,7 @@ public class Item_info {
         this.condition = condition;
         this.price = price;
         this.description = description;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -115,5 +117,13 @@ public class Item_info {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

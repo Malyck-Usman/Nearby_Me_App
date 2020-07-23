@@ -24,6 +24,7 @@
 
     <color name="app_red">#f9493d</color>
 
+<!--    <color name="colorAccent">#4e0df4</color>-->
     <color name="colorAccent">#f4c20d</color>
     <color name="colorOnPrimary">#ffffff</color>
     <color name="app_green">#2cb14f</color>

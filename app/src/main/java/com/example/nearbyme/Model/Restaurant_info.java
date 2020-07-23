@@ -15,11 +15,12 @@ public class Restaurant_info {
     private String description;
     private boolean home_delivery;
     private boolean table_reservation;
+    private boolean status;
 
     public Restaurant_info() {
     }
 
-    public Restaurant_info(String user_id, double latitude, double longitude, String res_type, String res_name, int opening_hour, int opening_minute, int closing_hour, int closing_minute, String description, boolean home_delivery, boolean table_reservation) {
+    public Restaurant_info(String user_id, double latitude, double longitude, String res_type, String res_name, int opening_hour, int opening_minute, int closing_hour, int closing_minute, String description, boolean home_delivery, boolean table_reservation,boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -32,6 +33,7 @@ public class Restaurant_info {
         this.description = description;
         this.home_delivery = home_delivery;
         this.table_reservation = table_reservation;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -144,5 +146,13 @@ public class Restaurant_info {
 
     public void setTable_reservation(boolean table_reservation) {
         this.table_reservation = table_reservation;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

@@ -11,11 +11,12 @@ public class Service_info {
     private String charge_type;
     private int charge_amount;
     private String description;
+    private boolean status;
 
     public Service_info() {
     }
 
-    public Service_info(String user_id, double latitude, double longitude, String service_type, String speciality, int experience, String charge_type, int charge_amount, String description) {
+    public Service_info(String user_id, double latitude, double longitude, String service_type, String speciality, int experience, String charge_type, int charge_amount, String description, boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -25,6 +26,7 @@ public class Service_info {
         this.charge_type = charge_type;
         this.charge_amount = charge_amount;
         this.description = description;
+        this.status=status;
     }
 
     public String getUser_id() {
@@ -105,5 +107,13 @@ public class Service_info {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

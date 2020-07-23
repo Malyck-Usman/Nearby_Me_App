@@ -34,12 +34,12 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class fragment_add_Item extends Fragment implements MapDialog.GetLocationDialogInterface,View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener, fragment_login.GetUserIdInterface {
+public class fragment_add_Item extends Fragment implements MapDialog.GetLocationDialogInterface, View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener, fragment_login.GetUserIdInterface {
     Spinner sp_Category, sp_Subcategory;
     private RadioGroup rg_Condition;
     private RadioButton rb_New, rb_Used;
     TextInputLayout edt_Name, edt_Brand, edt_Price, edt_Description;
-    private Button btn_Save,btn_Item_Location;
+    private Button btn_Save, btn_Item_Location;
     TextView errorTextCategory, errorTextSubCategory;
     private boolean IsChecked = false;
     private FirebaseFirestore mDBRef;
@@ -59,10 +59,10 @@ public class fragment_add_Item extends Fragment implements MapDialog.GetLocation
     String[] Software_Games = {"-Select Sub-Category-", "Games", "Windows", "Utility Software", "Software Development", "Designing & Printing"};
     String[] Mobile_Computer = {"-Select Sub-Category-", "Mobile Phones", "Laptop", "Desktop Computer", "Tablets", "Computer Accessories", "Mobile Accessories"};
     String[] Category = {"-Select a Category-", "Mobiles & Computers", "Software Games & Entertainment", "Vehicles", "Electronics & Home Appliances", "Bikes", "Animals & Pets", "Furniture & Home Decoration", "Fashion & Beauty", "Books & Sports", "Kids Accessories"};
-String[] SubCategory={"-Select Category first-"};
-    private boolean isGetLocation=false;
-    private double latitude=0;
-    private double longitude=0;
+    String[] SubCategory = {"-Select Category first-"};
+    private boolean isGetLocation = false;
+    private double latitude = 0;
+    private double longitude = 0;
 
     public fragment_add_Item() {
         // Required empty public constructor
@@ -76,44 +76,42 @@ String[] SubCategory={"-Select Category first-"};
         View view = inflater.inflate(R.layout.fragment_add__item, container, false);
         checkLogin();
         InitViews(view);
-mDBRef=FirebaseFirestore.getInstance();
+        mDBRef = FirebaseFirestore.getInstance();
         CheckBundle();
-
-
 
 
         return view;
     }
 
     private void CheckBundle() {
-        Bundle bundle=this.getArguments();
-        if(bundle!=null){
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
 
-            item_id=bundle.getString("item_id",null);
-            if(item_id!=null){
+            item_id = bundle.getString("item_id", null);
+            if (item_id != null) {
 
-            mDBRef.collection("items").document(item_id).get()
-                    .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            Item_info item=documentSnapshot.toObject(Item_info.class);
-                            edt_Name.getEditText().setText(item.getItem_name());
-                            edt_Brand.getEditText().setText(item.getBrand_name());
-                            edt_Price.getEditText().setText(String.valueOf(item.getPrice()));
-                            edt_Description.getEditText().setText(item.getDescription());
-                            String condition=item.getCondition();
-                            if(condition.equals("Used")){
-                                rb_Used.setChecked(true);
-                            }else {
-                                rb_New.setChecked(true);
+                mDBRef.collection("items").document(item_id).get()
+                        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                            @Override
+                            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                Item_info item = documentSnapshot.toObject(Item_info.class);
+                                edt_Name.getEditText().setText(item.getItem_name());
+                                edt_Brand.getEditText().setText(item.getBrand_name());
+                                edt_Price.getEditText().setText(String.valueOf(item.getPrice()));
+                                edt_Description.getEditText().setText(item.getDescription());
+                                String condition = item.getCondition();
+                                if (condition.equals("Used")) {
+                                    rb_Used.setChecked(true);
+                                } else {
+                                    rb_New.setChecked(true);
+                                }
                             }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
 
-                }
-            });
+                    }
+                });
             }
         }
     }
@@ -133,7 +131,6 @@ mDBRef=FirebaseFirestore.getInstance();
     }
 
 
-
     private void InitViews(View view) {
         edt_Name = view.findViewById(R.id.edt_item_name);
         edt_Brand = view.findViewById(R.id.edt_brand_name);
@@ -148,16 +145,16 @@ mDBRef=FirebaseFirestore.getInstance();
         rb_Used = view.findViewById(R.id.rb_used);
 
         btn_Save = view.findViewById(R.id.btn_save_item);
-        btn_Item_Location=view.findViewById(R.id.btn_item_location);
+        btn_Item_Location = view.findViewById(R.id.btn_item_location);
 
         rg_Condition.setOnCheckedChangeListener(this);
         btn_Save.setOnClickListener(this);
         btn_Item_Location.setOnClickListener(this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Category);
+        ArrayAdapter<String> subCategoryAdapter = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, SubCategory);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Category);
         sp_Category.setAdapter(adapter);
         sp_Category.setOnItemSelectedListener(this);
-        ArrayAdapter<String> subCategoryAdapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, SubCategory);
         sp_Subcategory.setAdapter(subCategoryAdapter);
 
 
@@ -179,59 +176,59 @@ mDBRef=FirebaseFirestore.getInstance();
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0:
-                ArrayAdapter<String> subCategoryAdapter = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, SubCategory);
+                ArrayAdapter<String> subCategoryAdapter = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, SubCategory);
                 sp_Subcategory.setAdapter(subCategoryAdapter);
 
                 break;
             case 1:
-                ArrayAdapter<String> Mobile_comp = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Mobile_Computer);
+                ArrayAdapter<String> Mobile_comp = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Mobile_Computer);
                 sp_Subcategory.setAdapter(Mobile_comp);
                 break;
 
             case 2:
-                ArrayAdapter<String> software_games = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Software_Games);
+                ArrayAdapter<String> software_games = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Software_Games);
                 sp_Subcategory.setAdapter(software_games);
                 break;
 
 
             case 3:
-                ArrayAdapter<String> vehicles = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Vehicles);
+                ArrayAdapter<String> vehicles = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Vehicles);
                 sp_Subcategory.setAdapter(vehicles);
                 break;
 
             case 4:
-                ArrayAdapter<String> electronics = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Electronics_HomeAppliances);
+                ArrayAdapter<String> electronics = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Electronics_HomeAppliances);
                 sp_Subcategory.setAdapter(electronics);
                 break;
 
 
             case 5:
-                ArrayAdapter<String> bikes = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Bikes);
+                ArrayAdapter<String> bikes = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Bikes);
                 sp_Subcategory.setAdapter(bikes);
                 break;
 
             case 6:
-                ArrayAdapter<String> animals_pets = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Animals);
+                ArrayAdapter<String> animals_pets = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Animals);
                 sp_Subcategory.setAdapter(animals_pets);
                 break;
 
             case 7:
-                ArrayAdapter<String> furniture_homedecor = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Furniture_HomeDecor);
+                ArrayAdapter<String> furniture_homedecor = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Furniture_HomeDecor);
                 sp_Subcategory.setAdapter(furniture_homedecor);
                 break;
 
             case 8:
-                ArrayAdapter<String> fashion = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Fashion_Beauty);
+                ArrayAdapter<String> fashion = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Fashion_Beauty);
                 sp_Subcategory.setAdapter(fashion);
                 break;
 
             case 9:
-                ArrayAdapter<String> books_sports = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Books_Sports);
+                ArrayAdapter<String> books_sports = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Books_Sports);
                 sp_Subcategory.setAdapter(books_sports);
                 break;
 
             case 10:
-                ArrayAdapter<String> kids = new ArrayAdapter<String>(getContext(), R.layout.support_simple_spinner_dropdown_item, Kids_Accessories);
+                ArrayAdapter<String> kids = new ArrayAdapter<String>(getContext(), R.layout.layout_spinner, Kids_Accessories);
                 sp_Subcategory.setAdapter(kids);
                 break;
         }
@@ -244,47 +241,47 @@ mDBRef=FirebaseFirestore.getInstance();
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_save_item:
 
-if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemName()|!ValidateBrand()|!ValidateCondition()|!ValidatePrice()|!ValidateDescription()){
-    return;
-}else {
-    ////////////////////////////////////
-  /////////
-    ////////////////////////////////////
-    String category = sp_Category.getSelectedItem().toString();
-    String sub_category = sp_Subcategory.getSelectedItem().toString();
-    String item_name = edt_Name.getEditText().getText().toString().trim();
-    String brand_name = edt_Brand.getEditText().getText().toString().trim();
-    int price=Integer.parseInt(edt_Price.getEditText().getText().toString().trim());
-    String item_description = edt_Description.getEditText().getText().toString().trim();
-    Item_info addItem=new Item_info(user_id,latitude,longitude,category,sub_category,item_name,brand_name,Condition,price,item_description);
+                if (!ValidateLocation() | !ValidateCategory() | !ValidateSubCategory() | !ValidateItemName() | !ValidateBrand() | !ValidateCondition() | !ValidatePrice() | !ValidateDescription()) {
+                    return;
+                } else {
+                    ////////////////////////////////////
+                    /////////
+                    ////////////////////////////////////
+                    String category = sp_Category.getSelectedItem().toString();
+                    String sub_category = sp_Subcategory.getSelectedItem().toString();
+                    String item_name = edt_Name.getEditText().getText().toString().trim();
+                    String brand_name = edt_Brand.getEditText().getText().toString().trim();
+                    int price = Integer.parseInt(edt_Price.getEditText().getText().toString().trim());
+                    String item_description = edt_Description.getEditText().getText().toString().trim();
+                    Item_info addItem = new Item_info(user_id, latitude, longitude, category, sub_category, item_name, brand_name, Condition, price, item_description,true);
 
-    if (item_id != null) {
-        mDocRef = mDBRef.collection("items").document(item_id);
-    } else {
-        mDocRef = mDBRef.collection("items").document();
+                    if (item_id != null) {
+                        mDocRef = mDBRef.collection("items").document(item_id);
+                    } else {
+                        mDocRef = mDBRef.collection("items").document();
 
-    }
+                    }
 
 
-   mDocRef.set(addItem)
-            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Toast.makeText(getActivity(),"Item added successfully",Toast.LENGTH_SHORT).show();
+                    mDocRef.set(addItem)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getActivity(), "Item added successfully", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("TAG", "Failed to add item" + e.getMessage());
+                        }
+                    });
                 }
-            }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-            Log.d("TAG","Failed to add item"+e.getMessage());
-        }
-    });
-}
                 break;
 
- case R.id.btn_item_location:
+            case R.id.btn_item_location:
                 MapDialog mapDialog = new MapDialog();
                 mapDialog.setTargetFragment(fragment_add_Item.this, 5);
                 mapDialog.setCancelable(false);
@@ -292,9 +289,9 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
                 break;
 
 
-
         }//end of switch
     }
+
     private boolean ValidateLocation() {
         if (!isGetLocation) {
             btn_Item_Location.setText("Location Required,Click To Get Location");
@@ -381,11 +378,10 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
         if (price.length() > 8) {
             edt_Price.setError("Price Exceeded the Limit");
 
-        }else if(price.length()==0){
+        } else if (price.length() == 0) {
             edt_Price.setError("Price Required");
 
-        }
-            else{
+        } else {
             edt_Price.setError(null);
             return true;
         }
@@ -415,6 +411,6 @@ if(!ValidateLocation()|!ValidateCategory()|!ValidateSubCategory()|!ValidateItemN
 
     @Override
     public void OnUidGet(String u_id) {
-        user_id=u_id;
+        user_id = u_id;
     }
 }

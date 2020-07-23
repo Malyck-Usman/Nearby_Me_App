@@ -36,7 +36,6 @@ public class HomeStore_Adapter_Dashboard extends RecyclerView.Adapter<HomeStore_
     @Override
     public MyHSViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.list_item_dashboard_homestore, parent, false);
-
         return new MyHSViewHolder(view);
     }
 
@@ -72,7 +71,9 @@ public class HomeStore_Adapter_Dashboard extends RecyclerView.Adapter<HomeStore_
                             public void onSuccess(Void aVoid) {
                                 Log.d("TAG", "DocumentSnapshot successfully deleted!");
                                 // notifyDataSetChanged();
+                                mHSList.remove(position);
                                 notifyItemRemoved(position);
+                                notifyItemRangeChanged(position, mHSList.size());
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

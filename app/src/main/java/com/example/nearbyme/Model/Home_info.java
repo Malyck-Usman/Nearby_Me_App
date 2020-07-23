@@ -19,11 +19,12 @@ public class Home_info {
     private boolean water;
     private boolean garage;
     private boolean lawn;
+    private boolean status;
 
     public Home_info() {
     }
 
-    public Home_info(String user_id, double latitude, double longitude, float total_area, float covered_area, int rent_amount, int security_amount, String floor, int rooms, int bathrooms, int kitchens, String description, boolean furnished, boolean gas, boolean water, boolean garage, boolean lawn) {
+    public Home_info(String user_id, double latitude, double longitude, float total_area, float covered_area, int rent_amount, int security_amount, String floor, int rooms, int bathrooms, int kitchens, String description, boolean furnished, boolean gas, boolean water, boolean garage, boolean lawn,boolean status) {
         this.user_id = user_id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -41,6 +42,7 @@ public class Home_info {
         this.water = water;
         this.garage = garage;
         this.lawn = lawn;
+        this.status=status;
     }
 
     public String getHome_id() {
@@ -185,5 +187,13 @@ public class Home_info {
 
     public void setLawn(boolean lawn) {
         this.lawn = lawn;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
