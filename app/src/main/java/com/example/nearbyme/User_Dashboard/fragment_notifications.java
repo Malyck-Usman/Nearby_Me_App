@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class fragment_notifications extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
         InitViews(view);
         Bundle bundle = this.getArguments();
-        assert bundle != null;
+        Log.d("TAG", "User id in fragment Notifications is " + bundle.getString("u_id"));
         user_id = bundle.getString("u_id", null);
         if (user_id != null) {
 
@@ -55,9 +56,9 @@ public class fragment_notifications extends Fragment {
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                            for(QueryDocumentSnapshot qds:queryDocumentSnapshots){
+                            for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
 
-                                Notification_info notification=qds.toObject(Notification_info.class);
+                                Notification_info notification = qds.toObject(Notification_info.class);
                                 notification.setN_id(qds.getId());
                                 mNotificationList.add(notification);
                             }
@@ -66,7 +67,7 @@ public class fragment_notifications extends Fragment {
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-
+                    Log.d("TAG", "failed to get notification info" + e.getMessage());
                 }
             });
 

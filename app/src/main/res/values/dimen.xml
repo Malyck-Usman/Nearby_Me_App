@@ -19,5 +19,6 @@
 <dimen name="fragment_add_layout_margin">10dp</dimen>
     <dimen name="chk_margin_top">10dp</dimen>
     <dimen name="rv_items_corner_radius">8dp</dimen>
+    <dimen name="text_size_cv_detail_fragments">14sp</dimen>
 
 </resources>

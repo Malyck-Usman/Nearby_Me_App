@@ -164,7 +164,7 @@ public class fragment_announcement extends Fragment implements OnMapReadyCallbac
                 mGoogleMap.clear();
                 DrawCircle(radius);
                 addMarker();
-                mDBRef.collection("announcements").get()
+                mDBRef.collection("announcements").whereEqualTo("status",true).get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

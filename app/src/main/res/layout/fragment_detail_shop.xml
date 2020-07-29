@@ -4,51 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".detail_fragments.fragment_detail_shop">
+    tools:context=".detail_fragments.fragment_detail_shop"
+    android:background="@drawable/bg_gradient">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/top_bar"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:contentScrim="@color/ColorPrimary"
 
-            app:title="Title here"
-            app:expandedTitleMarginEnd="48dp"
-            app:expandedTitleMarginBottom="60dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/tv_res_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="40sp"
-                    android:fontFamily="@font/britanic"
-                    android:textColor="@color/secondary"
-                    android:text="Shop For Rent"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginStart="10dp"/>
 
-            </LinearLayout>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
-        app:layout_constraintStart_toStartOf="parent"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,11 +38,30 @@
             android:layout_margin="@dimen/fragment_add_layout_margin"
             >
             <TextView
+                android:id="@+id/tv_res_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Shop Info"
-                android:textColor="#FF494747"
+                android:textSize="40sp"
                 android:fontFamily="@font/britanic"
+                android:textColor="@color/secondary"
+                android:text="Shop For Rent"
+                android:layout_marginTop="20dp"
+               android:gravity="center_vertical|center_horizontal"/>
+            <View
+                android:id="@+id/top_view_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/on_secondary_light" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Shop Info"
+                android:textColor="@color/on_secondary"                android:fontFamily="@font/britanic"
                 android:textSize="18sp"
                 android:gravity="center_horizontal"
                 />
@@ -77,7 +77,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Dimensions"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_dimension"
@@ -86,8 +87,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -104,7 +106,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Rent in Rs"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_rent"
@@ -113,8 +116,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
 
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -131,7 +135,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Security in Rs"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_security"
@@ -140,8 +145,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -156,7 +162,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Floor"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_floor"
@@ -165,8 +172,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -181,7 +189,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Finishing"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_finishing"
@@ -190,8 +199,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -206,7 +216,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Parking"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_parking"
@@ -215,8 +226,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -231,7 +243,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Store"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_store"
@@ -240,23 +253,35 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:id="@+id/view_middle_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/on_secondary_light_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_announcement_description" />
 
 
 
 
             <TextView
                 android:id="@+id/home_description_title"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_homedetail_lawn"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="Description"
-                android:textColor="#FF494747"
+                android:textColor="@color/on_secondary"
                 android:fontFamily="@font/britanic"
                 android:textSize="18sp"
                 android:gravity="center_horizontal"/>
@@ -268,16 +293,30 @@
                 app:layout_constraintTop_toBottomOf="@id/home_description_title"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/on_secondary"
+                android:textSize="@dimen/text_size_cv_detail_fragments"
                 />
+            <View
+                android:id="@+id/view_bottom_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/on_secondary_light_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_announcement_description" />
+
             <TextView
                 android:id="@+id/home_user_title"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/tv_homedetail_description"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="Owner Detail"
-                android:textColor="#FF494747"
+                android:textColor="@color/on_secondary"
                 android:fontFamily="@font/britanic"
                 android:textSize="18sp"
                 android:gravity="center_horizontal"/>
@@ -293,7 +332,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="Name"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_ownername"
@@ -302,8 +342,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -319,7 +360,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:text="phone no"
-                    android:textSize="16sp"/>
+                    android:textColor="@color/on_secondary"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"/>
 
                 <TextView
                     android:id="@+id/tv_shopdetail_ownerphoneno"
@@ -328,8 +370,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/on_secondary"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -340,5 +383,6 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.nearbyme.detail_fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,48 +44,51 @@ public class fragment_detail_services extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             mServiceId = bundle.getString("service_id", null);
-            Log.d("TAG", mServiceId);
+//            Log.d("TAG", mServiceId);
 
         }
         mDBRef = FirebaseFirestore.getInstance();
         mDBRef.collection("services").document(mServiceId).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         Service_info service = documentSnapshot.toObject(Service_info.class);
-tv_Type.setText(service.getService_type());
-String speciality=service.getSpeciality();
-if(speciality.equals("")){
-    tv_Speciality.setText("N/A");
-}else {
+                        tv_Type.setText(service.getService_type());
+                        String speciality = service.getSpeciality();
+                        if (speciality.equals("")) {
+                            tv_Speciality.setText("N/A");
+                        } else {
 
-tv_Speciality.setText(speciality);
-}
-tv_Experience.setText(String.valueOf(service.getExperience())+" Years");
-tv_ChargeType.setText(service.getCharge_type());
-tv_Charges.setText(String.valueOf(service.getCharge_amount()));
-                        String description=service.getDescription();
-                        if(description.equals("")){
+                            tv_Speciality.setText(speciality);
+                        }
+                        tv_Experience.setText(service.getExperience() + " Years");
+                        tv_ChargeType.setText(service.getCharge_type());
+                        tv_Charges.setText(String.valueOf(service.getCharge_amount()));
+                        String description = service.getDescription();
+                        if (description.equals("")) {
                             tv_Description.setText("N/A");
-                        }else {
+                        } else {
 
                             tv_Description.setText(description);
                         }
-tv_Description.setText(service.getDescription());
-mDBRef.collection("users").document(service.getUser_id()).get()
-        .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                User user=documentSnapshot.toObject(User.class);
-                tv_OwnerName.setText(user.getUser_name());
-                tv_OwnerNumber.setText(user.getPhone_no());
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-    @Override
-    public void onFailure(@NonNull Exception e) {
-        Toast.makeText(getContext(),"Failed to get data, Try again ",Toast.LENGTH_LONG).show();
-    }
-});
+                        tv_Description.setText(service.getDescription());
+                        mDBRef.collection("users").document(service.getUser_id()).get()
+                                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                        User user = documentSnapshot.toObject(User.class);
+                                        assert user != null;
+                                        Log.d("TAG","user id is "+service.getUser_id());
+                                        tv_OwnerName.setText(user.getUser_name());
+                                        tv_OwnerNumber.setText(user.getPhone_no());
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.d("TAG", "Failed to get data" + e.getMessage());
+                            }
+                        });
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {

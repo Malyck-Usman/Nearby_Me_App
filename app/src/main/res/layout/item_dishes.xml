@@ -6,10 +6,12 @@
     android:id="@+id/cv_dishes"
 
 
+
  >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
 
     <LinearLayout
         android:id="@+id/top_layout_item_dishes"

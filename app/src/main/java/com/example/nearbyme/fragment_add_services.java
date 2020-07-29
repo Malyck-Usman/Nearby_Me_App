@@ -296,8 +296,8 @@ public class fragment_add_services extends Fragment implements MapDialog.GetLoca
 
     private boolean ValidateResDescription() {
         String ServiceDesc = edt_Description.getEditText().getText().toString().trim();
-        if (ServiceDesc.length() > 200) {
-            edt_Description.setError("Description Too Long");
+        if (ServiceDesc.length() < 80) {
+            edt_Description.setError("Description Required Min 80 Characters");
 
         } else {
             edt_Description.setError(null);

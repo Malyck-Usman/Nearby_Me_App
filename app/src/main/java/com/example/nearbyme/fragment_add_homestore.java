@@ -37,7 +37,7 @@ public class fragment_add_homestore extends Fragment implements View.OnClickList
     EditText edt_Store_Opening_Time, edt_Store_Closing_Time;
     Button btn_Save, btn_Home_store_Location;
     TextView errorText;
-    String[] Store_type = {"-Select Store Type-", "Garments", "Grocery", "Handicraft", "Decoration", "Spare Parts"};
+    String[] Store_type = {"-Select Store Type -", "Garments", "Grocery", "Handicraft", "Decoration", "Spare Parts"};
     private int opening_hour, opening_minute, closing_hour, closing_minute;
     private FirebaseFirestore mDBRef;
     private DocumentReference mDocRef;
@@ -231,8 +231,8 @@ public class fragment_add_homestore extends Fragment implements View.OnClickList
 
     private boolean ValidateResDescription() {
         String ResDesc = edt_Description.getEditText().getText().toString().trim();
-        if (ResDesc.length() > 200) {
-            edt_Description.setError("Description Too Long");
+        if (ResDesc.length() < 80) {
+            edt_Description.setError("Description Required Min 80 Characters");
 
         } else {
             edt_Description.setError(null);

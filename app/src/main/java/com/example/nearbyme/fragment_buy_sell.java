@@ -161,7 +161,7 @@ public class fragment_buy_sell extends Fragment implements OnMapReadyCallback,Vi
                 mGoogleMap.clear();
                 DrawCircle(radius);
                 addMarker();
-                mDBRef.collection("items").get()
+                mDBRef.collection("items").whereEqualTo("status",true).get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

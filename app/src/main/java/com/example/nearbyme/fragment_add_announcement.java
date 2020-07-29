@@ -174,7 +174,7 @@ public class fragment_add_announcement extends Fragment implements MapDialog.Get
 
     private boolean ValidateSubject() {
         String Subject = edt_Subject.getEditText().getText().toString().trim();
-        if (Subject.length() > 25) {
+        if (Subject.length() > 40) {
             edt_Subject.setError("Subject Text Exceeded Limit  ");
 
         } else if (Subject.isEmpty()) {
@@ -188,11 +188,9 @@ public class fragment_add_announcement extends Fragment implements MapDialog.Get
 
     private boolean ValidateDescription() {
         String Description = edt_Description.getEditText().getText().toString().trim();
-        if (Description.length() > 300) {
-            edt_Description.setError("Description Text Exceeded Limit");
+        if (Description.length() < 80) {
+            edt_Description.setError("Description Required Min 80 Characters");
 
-        } else if (Description.isEmpty()) {
-            edt_Description.setError("Description is  Required");
         } else {
             edt_Description.setError(null);
             return true;

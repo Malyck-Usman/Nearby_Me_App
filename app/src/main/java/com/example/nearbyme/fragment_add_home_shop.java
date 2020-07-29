@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -35,7 +36,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
     TextInputLayout edt_Dimensions, edt_Area, edt_Covered_Area, edt_Rent, edt_Security, edt_Floor, edt_Rooms, edt_Bathrooms, edt_Kitchens, edt_Description;
     CheckBox cb_Finishing, cb_Store, cb_Parking, cb_Gas, cb_Water, cb_Garage, cb_Lawn, cb_Furnished;
     Button btn_Save_Home_Shop, btn_Home_Shop_Location;
-
+ConstraintLayout bg_Home_Shop;
     ToggleButton sw_Home_Shop;
     private boolean isHome = true;
     private boolean furnished = false;
@@ -171,6 +172,8 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
     }
 
     private void initViews(View view) {
+        bg_Home_Shop=view.findViewById(R.id.layout_add_home_shop);
+
         edt_Dimensions = view.findViewById(R.id.edt_dimensions);
         edt_Area = view.findViewById(R.id.edt_area);
         edt_Covered_Area = view.findViewById(R.id.edt_covered_area);
@@ -201,6 +204,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
 
     private void ShowShop(View view) {
         isHome=false;
+        bg_Home_Shop.setBackgroundResource(R.drawable.bg_add_shop);
         edt_Area.setVisibility(View.GONE);
         edt_Covered_Area.setVisibility(View.GONE);
         edt_Rooms.setVisibility(View.GONE);
@@ -219,6 +223,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
 
     private void ShowHome(View view) {
         isHome=true;
+        bg_Home_Shop.setBackgroundResource(R.drawable.bg_add_home);
         edt_Dimensions.setVisibility(View.GONE);
         cb_Store.setVisibility(View.GONE);
         cb_Parking.setVisibility(View.GONE);
@@ -471,9 +476,7 @@ public class fragment_add_home_shop extends Fragment implements MapDialog.GetLoc
 
     private boolean ValidateDescription() {
         String Description = edt_Description.getEditText().getText().toString().trim();
-        if (Description.length() > 200) {
-            edt_Description.setError("Description Length Exceeded Limit");
-        } else if((Description.length() < 80)) {
+        if((Description.length() < 80)) {
             edt_Description.setError("Description Must be 80 Characters long ");
 
         }

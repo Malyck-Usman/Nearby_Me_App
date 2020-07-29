@@ -331,8 +331,8 @@ public class fragment_add_restaurants extends Fragment implements MapDialog.GetL
 
     private boolean ValidateResDescription() {
         String ResDesc = edt_Res_Description.getEditText().getText().toString().trim();
-        if (ResDesc.length() > 200) {
-            edt_Res_Description.setError("Description Too Long");
+        if (ResDesc.length() <80) {
+            edt_Res_Description.setError("Description Required Min 80 Characters");
 
         } else {
             edt_Res_Description.setError(null);

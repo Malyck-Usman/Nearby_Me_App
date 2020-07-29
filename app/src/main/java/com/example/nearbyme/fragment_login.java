@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nearbyme.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,6 +26,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -123,16 +126,20 @@ public class fragment_login extends Fragment implements View.OnClickListener {
                                     } else {
 
                                         for (QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots) {
-                                            Log.d(TAG, "" + queryDocumentSnapshot.getId());
+                                           // Log.d(TAG, "" + queryDocumentSnapshot.getId());
                                             String id = queryDocumentSnapshot.getId();
+                                            User user=queryDocumentSnapshot.toObject(User.class);
+                                            String privilege=user.getPrivilege();
                                             SharedPreferences.Editor sp_login = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE).edit();
                                             sp_login.putString(getString(R.string.DOCUMENT_ID), id);
+                                            sp_login.putString(getString(R.string.M_PRIVILEGE),privilege);
                                             sp_login.apply();
                                             ((MainActivity)getActivity()).ShowUser();
 
                                             getUserId.OnUidGet(id);
 
                                             Fragment fragment=getTargetFragment();
+
 
                                            getActivity().getSupportFragmentManager()
                                                    .beginTransaction().replace(R.id.fragment_container,fragment).commit();
@@ -153,7 +160,7 @@ public class fragment_login extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.tv_signup:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_signup()).commit();
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_signup()).addToBackStack(null).commit();
                 break;
         }
     }

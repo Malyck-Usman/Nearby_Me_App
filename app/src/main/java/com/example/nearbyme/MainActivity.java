@@ -46,9 +46,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        OnMapReadyCallback,
-        View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
 
 
     TextView nav_user_name;
@@ -147,6 +145,7 @@ public class MainActivity extends AppCompatActivity
                 || fragInFrame instanceof fragment_add_announcement
                 || fragInFrame instanceof fragment_dashboard
                 || fragInFrame instanceof fragment_login
+                ||fragInFrame instanceof admin_panel
 
 
         ) {
@@ -255,15 +254,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
 
-    }
-
-    @Override
-    public void onClick(View v) {
-
-    }
 
 
     private boolean isServicesOk() {
@@ -400,12 +391,14 @@ public class MainActivity extends AppCompatActivity
                                 Toast.makeText(getApplicationContext(), "logout", Toast.LENGTH_LONG).show();
                                 SharedPreferences.Editor editor = getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE).edit();
                                 editor.putString(getString(R.string.DOCUMENT_ID), "");
+                                editor.putString(getString(R.string.M_PRIVILEGE),"");
                                 editor.apply();
                                 nav_user_name.setVisibility(View.INVISIBLE);
+                                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_home()).commit();
 
 
                             } else if (item.getItemId() == R.id.delete) {
-                                Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplicationContext(), "delete", Toast.LENGTH_LONG).show();
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                 builder.setTitle("Delete Account");

@@ -150,8 +150,8 @@ public class fragment_restaurant extends Fragment implements OnMapReadyCallback,
                             OnMapCircle.remove();
                         }
 
-                        DrawCircle(500);
-                        edt_Radius.setText("500");
+                        DrawCircle(radius);
+                        edt_Radius.setText(String.valueOf(radius));
                         addMarker();
 
 
@@ -166,7 +166,7 @@ public class fragment_restaurant extends Fragment implements OnMapReadyCallback,
                 mGoogleMap.clear();
                 DrawCircle(radius);
                 addMarker();
-                mDBRef.collection("restaurants").get()
+                mDBRef.collection("restaurants").whereEqualTo("status",true).get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

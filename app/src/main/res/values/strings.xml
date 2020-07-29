@@ -12,6 +12,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="M_LOGIN_FILE">my_login_file</string>
     <string name="DOCUMENT_ID">user_document_id</string>
+    <string name="M_PRIVILEGE">user_privilege</string>
 
     <!-- Strings used for fragments for navigation -->
 

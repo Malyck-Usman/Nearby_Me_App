@@ -31,6 +31,7 @@ import com.example.nearbyme.User_Dashboard.Restaurant_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.Services_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.Shop_Adapter_Dashboard;
 import com.example.nearbyme.User_Dashboard.fragment_notifications;
+import com.example.nearbyme.admin_panel.admin_panel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -72,7 +73,7 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
     private FirebaseFirestore mDBRef;
     private String user_id = null;
     private boolean isHome = true;
-    private int new_notification;
+    private int new_notification=0;
 
 
     public fragment_dashboard() {
@@ -90,9 +91,9 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
         checkLogin();
         ((MainActivity) requireActivity()).setActionBarTitle("Dashboard");
         InitViews(view);
-    //    tv_notification_badge = view.findViewById(R.id.tv_notification_badge);
+        //    tv_notification_badge = view.findViewById(R.id.tv_notification_badge);
         Log.d("TAG", "Before GetNotification");
-      //  getNotificationCount();
+   //     getNotificationCount();
         sw_Home_Shop.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (sw_Home_Shop.isChecked()) {
                 isHome = false;
@@ -169,34 +170,41 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
 
     private void getNotificationCount() {
         new_notification = 0;
-        Log.d("TAG", "User id is" + user_id);
-        mDBRef.collection("users").document(user_id).collection("notifications").whereEqualTo("read", false)
+      //  Log.d("TAG", "User id in getnotification is" + user_id);
+        mDBRef.collection("users").document(user_id).collection("notifications").whereEqualTo("read",false)
                 .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 for (QueryDocumentSnapshot qds : queryDocumentSnapshots) {
                     new_notification = new_notification + 1;
+                    Log.d("TAG","New notifications ="+new_notification);
+
                 }
                 if (new_notification != 0) {
                     tv_notification_badge.setVisibility(View.VISIBLE);
                     tv_notification_badge.setText(String.valueOf(new_notification));
-                }else {
+                } else {
                     tv_notification_badge.setVisibility(View.GONE);
                 }
+              //  Log.d("TAG", "no of notifications =" + new_notification);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Log.d("TAG", "failed to load notifications" + e.getMessage());
             }
         });
     }
 
     private void checkLogin() {
         Log.d("TAG", "in check login");
-        SharedPreferences checkUserId = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
-        user_id = checkUserId.getString(getString(R.string.DOCUMENT_ID), "");
-        if(!(user_id.equals(""))){
+        SharedPreferences checkUser = getActivity().getSharedPreferences(getString(R.string.M_LOGIN_FILE), MODE_PRIVATE);
+        user_id = checkUser.getString(getString(R.string.DOCUMENT_ID), "");
+        String privilege=checkUser.getString(getString(R.string.M_PRIVILEGE),"");
+        if (!(user_id.equals(""))) {
+            if(privilege.equals("admin")){
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new admin_panel()).commit();
+            }
             getNotificationCount();
         }
         if (user_id.equals("")) {
@@ -411,9 +419,10 @@ public class fragment_dashboard extends Fragment implements fragment_login.GetUs
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.fab_notifications_dashboard) {
-            Bundle bundle=new Bundle();
-            bundle.putString("u_id",user_id);
-            fragment_notifications fn=new fragment_notifications();
+        Log.d("TAG","btn Notifications clicked");
+            Bundle bundle = new Bundle();
+            bundle.putString("u_id", user_id);
+            fragment_notifications fn = new fragment_notifications();
             fn.setArguments(bundle);
 
             requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fn).addToBackStack(null).commit();

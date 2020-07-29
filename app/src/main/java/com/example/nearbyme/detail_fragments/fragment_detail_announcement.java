@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +63,9 @@ public class fragment_detail_announcement extends Fragment {
                         Announcement_info ann_info = documentSnapshot.toObject(Announcement_info.class);
                         assert ann_info != null;
 
+                       tv_subject.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
                         tv_subject.setText(ann_info.getSubject());
+
                         tv_description.setText(ann_info.getDescription());
 
                         mDBRef.collection("users").document(ann_info.getUser_id())

@@ -3,6 +3,7 @@ package com.example.nearbyme.Model;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ private List<Item_info> mItemList;
         Item_info item=mItemList.get(position);
         holder.tv_s_no.setText(String.valueOf(position+1));
         holder.tv_name.setText(item.getItem_name());
+
         float[] distance = new float[2];
         Location.distanceBetween(mLat, mLng, item.getLatitude(), item.getLongitude(), distance);
         int displacement =(int) distance[0];

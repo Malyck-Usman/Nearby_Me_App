@@ -42,6 +42,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.maps.android.ui.IconGenerator;
@@ -208,7 +209,7 @@ public class fragment_home_shop extends Fragment implements OnMapReadyCallback, 
                 if (isHome) {
                     mRecyclerView.setAdapter(mHomeAdapter);
 
-                    mDBRef.collection("homes").orderBy("rent_amount").get()
+                    mDBRef.collection("homes").whereEqualTo("status",true).orderBy("rent_amount", Query.Direction.ASCENDING).get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                 @Override
                                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -260,13 +261,14 @@ public class fragment_home_shop extends Fragment implements OnMapReadyCallback, 
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            Log.d("TAG","failed to load data"+e.getMessage());
                             Toast.makeText(getContext(), "Failed to load data,Check your internet connection and try again", Toast.LENGTH_LONG).show();
                         }
                     });
                 } else //for shop
                 {
                     mRecyclerView.setAdapter(mShopAdapter);
-                    mDBRef.collection("shop").orderBy("rent_amount").get()
+                    mDBRef.collection("shop").whereEqualTo("status",true).orderBy("rent_amount",Query.Direction.ASCENDING).get()
                             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                 @Override
                                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -318,6 +320,7 @@ public class fragment_home_shop extends Fragment implements OnMapReadyCallback, 
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            Log.d("TAG","failed to get hop"+e.getMessage());
                             Toast.makeText(getContext(), "Failed to load data,Check your internet connection and try again", Toast.LENGTH_LONG).show();
                         }
                     });

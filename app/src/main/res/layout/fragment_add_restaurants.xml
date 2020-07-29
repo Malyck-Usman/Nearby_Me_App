@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_add_restaurants">
+    tools:context=".fragment_add_restaurants"
+    android:background="@drawable/bg_add_restaurant">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="Click to get Location"
-                    android:textColor="@color/ColorPrimary" />
+                    android:textColor="@color/secondary" />
 
 
             </androidx.cardview.widget.CardView>
@@ -43,16 +44,17 @@
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/sp_restaurant_type"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_restaurant_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Restaurant Name"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Restaurant Name *"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
+                android:layout_marginTop="20dp"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textColor="@color/ColorPrimary" />
+                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
@@ -70,20 +72,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:hint="Opening time"
+                android:hint="Opening time *"
                 android:inputType="none"
-                android:textColor="@color/ColorPrimary"
-                android:textColorHint="@color/ColorPrimary" />
+               />
 
             <EditText
                 android:id="@+id/edt_res_closing_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:hint="Closing time"
+                android:hint="Closing time *"
                 android:inputType="none"
-                android:textColor="@color/ColorPrimary"
-                android:textColorHint="@color/ColorPrimary"
 
                 />
 
@@ -92,10 +91,8 @@
                 android:id="@+id/edt_res_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Description *"
                 app:counterEnabled="true"
-                app:counterMaxLength="200"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,15 +118,13 @@
                     android:layout_margin="5dp"
                     android:layout_weight="3.5"
                     android:hint="Dish Name"
-                    android:textColorHint="@color/ColorPrimary"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/app_red">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textColor="@color/ColorPrimary" />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -139,7 +134,6 @@
                     android:layout_margin="5dp"
                     android:layout_weight="3.5"
                     android:hint="Price"
-                    android:textColorHint="@color/ColorPrimary"
                     app:errorEnabled="true"
                     app:errorTextColor="@color/app_red">
 
@@ -147,7 +141,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textColor="@color/ColorPrimary"
                         android:textSize="@dimen/Text_size_small" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,7 +150,9 @@
                     android:layout_height="40dp"
                     android:layout_margin="5dp"
                     android:layout_weight="2"
-                    android:text="Add" />
+                    android:textColor="@color/secondary"
+                    android:text="Add"
+                    android:background="@drawable/bg_get_location_btn"/>
 
             </LinearLayout>
 
@@ -212,7 +207,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Home delivery"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_table_reservation"
@@ -221,7 +216,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Table Reservation"
-                android:textColor="@color/ColorPrimary" />
+                />
 
 
             <Button
@@ -231,7 +226,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button"
                 android:text="save"
-                android:textColor="@color/ColorPrimary"
+                android:textColor="@color/secondary"
                 android:textStyle="bold" />
 
 

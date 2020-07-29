@@ -1,259 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".detail_fragments.fragment_detail_restaurant"
-    android:background="#ffffff">
+    android:background="@drawable/bg_gradient"
+    tools:context=".detail_fragments.fragment_detail_restaurant">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/top_bar"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:contentScrim="@color/ColorPrimary"
 
-            app:title="Title here"
-            app:expandedTitleMarginEnd="48dp"
-            app:expandedTitleMarginBottom="60dp">
+            >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:layout_margin="@dimen/fragment_add_layout_margin"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_res_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="36sp"
-                android:fontFamily="@font/britanic"
-                android:textColor="@color/secondary"
-                android:text="Dastoor Restaurants and hotels"
-                android:layout_marginEnd="50dp"
-                android:layout_marginStart="10dp"/>
+                <TextView
+                    android:id="@+id/tv_res_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/britanic"
+                    android:text="Dastoor Restaurants and hotels"
+                    android:textColor="@color/secondary"
+                    android:textSize="40sp" />
 
+                <View
+                    android:id="@+id/top_view_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/on_secondary_light" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/britanic"
+                    android:gravity="center_horizontal"
+                    android:text="Restaurant Info"
+                    android:textColor="@color/on_secondary"
+                    android:textSize="18sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Opening Time"
+                        android:textColor="@color/on_secondary"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_res_openingtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@color/on_secondary"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Closing Time"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        android:textColor="@color/on_secondary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_res_closingtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        android:textColor="@color/on_secondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Home Delivery"
+                        android:textColor="@color/on_secondary"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_res_homedelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        android:textColor="@color/on_secondary"                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Table Reservation"
+                        android:textColor="@color/on_secondary"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_res_tablereservation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        android:textColor="@color/on_secondary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Contact No"
+                        android:textColor="@color/on_secondary"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_res_contactno"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/text_size_cv_detail_fragments"
+                        android:textColor="@color/on_secondary"                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/view_middle_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/on_secondary_light_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_announcement_description" />
+
+
+                <TextView
+                    android:id="@+id/res_description_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/britanic"
+                    android:gravity="center_horizontal"
+                    android:text="Description"
+                    android:textColor="@color/on_secondary"                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_res_contactno" />
+
+                <TextView
+                    android:id="@+id/tv_res_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="@dimen/text_size_cv_detail_fragments"
+                    android:textColor="@color/on_secondary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/res_description_title" />
+                <View
+                    android:id="@+id/view_bottom_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/on_secondary_light_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_announcement_description" />
+
+                <TextView
+                    android:id="@+id/dishes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/britanic"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="Dishes Details"
+                    android:textColor="@color/on_secondary"                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_res_description" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_res_dishes"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dishes"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp" />
             </LinearLayout>
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
-        app:layout_constraintStart_toStartOf="parent"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/fragment_add_layout_margin"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Restaurant info"
-android:textColor="#FF494747"
-                android:fontFamily="@font/britanic"
-                android:textSize="18sp"
-                android:gravity="center_horizontal"/>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-     app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Opening Time"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_res_openingtime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:textStyle="bold"
-        />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Closing Time"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_res_closingtime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:textStyle="bold"
-        />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Home Delivery"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_res_homedelivery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:textStyle="bold"
-
-        />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Table Reservation"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_res_tablereservation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:textStyle="bold"
-        />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Contact No"
-        android:textSize="16sp"/>
-
-    <TextView
-        android:id="@+id/tv_res_contactno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:textStyle="bold"
-        />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
 
-
-    <TextView
-        android:id="@+id/res_description_title"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_res_contactno"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Description"
-        android:textColor="#FF494747"
-        android:fontFamily="@font/britanic"
-        android:textSize="18sp"
-        android:gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/tv_res_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/res_description_title"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        />
-    <TextView
-        android:id="@+id/dishes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_res_description"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:text="Dishes Details"
-        android:textColor="#FF494747"
-        android:fontFamily="@font/britanic"
-        android:textSize="18sp"
-        android:gravity="center_horizontal"
-        android:padding="5dp"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_res_dishes"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintTop_toBottomOf="@id/dishes"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-
-         />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="100dp"/>
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-
-
-
-
-
-
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

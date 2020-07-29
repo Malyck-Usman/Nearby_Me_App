@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment_add_homestore">
+    tools:context=".fragment_add_homestore"
+    android:background="@drawable/bg_add_homestore">
 
 
     <androidx.core.widget.NestedScrollView
@@ -31,7 +32,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_get_location_btn"
                     android:text="Click to get Location"
-                    android:textColor="@color/ColorPrimary"
+                    android:textColor="@color/secondary"
                     android:drawableEnd="@drawable/icon_gps"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"/>
@@ -43,6 +44,7 @@
                 android:id="@+id/sp_store_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_store_name"
@@ -51,16 +53,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
+                android:layout_marginTop="20dp"
                 app:errorTextColor="@color/app_red"
-                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="25">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Store Name"
+                    android:hint="Store Name *"
                     android:inputType="text"
-                    android:textColor="@color/ColorPrimary"
+
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <EditText
@@ -68,20 +70,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:hint="Opening time"
+                android:hint="Opening time *"
                 android:inputType="none"
-                android:textColor="@color/ColorPrimary"
-                android:textColorHint="@color/ColorPrimary" />
+                android:layout_marginTop="20dp"
+               />
 
             <EditText
                 android:id="@+id/edt_store_closing_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:hint="Closing time"
+                android:hint="Closing time *"
                 android:inputType="none"
-                android:textColor="@color/ColorPrimary"
-                android:textColorHint="@color/ColorPrimary"
+                android:layout_marginTop="20dp"
+
 
                 />
             <com.google.android.material.textfield.TextInputLayout
@@ -92,15 +94,14 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
-                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
-                app:counterMaxLength="200">
+                android:layout_marginTop="20dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Description"
+                    android:hint="Description *"
                     android:inputType="textMultiLine"
-                    android:textColor="@color/ColorPrimary"
+
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,9 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_button"
-                android:textColor="@color/ColorPrimary"
+                android:textColor="@color/secondary"
                 android:textStyle="bold"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:text="save"/>
 
 

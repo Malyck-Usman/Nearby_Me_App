@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,8 @@ public class fragment_detail_buy extends Fragment {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         Item_info item = documentSnapshot.toObject(Item_info.class);
                         tv_Name.setText(item.getItem_name());
+                      tv_Name.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+
                         String brand = item.getBrand_name();
                         if (brand.equals("")) {
                             tv_Brand.setText("N/A");

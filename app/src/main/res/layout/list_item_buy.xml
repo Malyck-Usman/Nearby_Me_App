@@ -119,6 +119,8 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:text="description"
+                android:ellipsize="end"
+                android:maxLines="1"
 
 
             />

@@ -48,8 +48,8 @@ public class fragment_add_Item extends Fragment implements MapDialog.GetLocation
     private String user_id = null;
 
     String Condition = null;
-    String[] Kids_Accessories = {"-Select Sub-Category-", "Kids Furniture", "Toys", "Prams & Walkers", "Swings & Slides", "Kids Bikes", "Kids Accessories"};
-    String[] Books_Sports = {"-Select Sub-Category-", "Books & Magazines", "Sports Equipment", "Gym & Fitness", "Musical Instruments", "Other Hobbies"};
+    String[] Kids_Accessories = {"-Select Sub-Category*-", "Kids Furniture", "Toys", "Prams & Walkers", "Swings & Slides", "Kids Bikes", "Kids Accessories"};
+    String[] Books_Sports = {"-Select Sub-Category*-", "Books & Magazines", "Sports Equipment", "Gym & Fitness", "Musical Instruments", "Other Hobbies"};
     String[] Fashion_Beauty = {"-Select Sub-Category-", "Clothes", "Footwear", "Jewellery", "MakeUp", "Skin & Hair", "Watches", "Wedding Accessories", "Lawn & Pret", "Couture", "Other Fashion", "Accessories"};
     String[] Furniture_HomeDecor = {"-Select Sub-Category-", "Sofa & Chairs", "Beds & Wardrobes", "Home Decoration", "Tables & Dining", "Garden & Outdoor", "Painting & Mirrors", "Rugs & Carpets", "Curtains & Blinds", "Office Furniture", "Other Household Items"};
     String[] Animals = {"-Select Sub-Category-", "Animals", "Fish & Aquariums", "Birds", "Hens", "Cats", "Dogs", "Livestock", "Pet Food & Accessories", "Other Animals"};
@@ -390,10 +390,10 @@ public class fragment_add_Item extends Fragment implements MapDialog.GetLocation
 
     private boolean ValidateDescription() {
         String ServiceDesc = edt_Description.getEditText().getText().toString().trim();
-        if (ServiceDesc.length() > 200) {
-            edt_Description.setError("Description Too Long");
-
-        } else {
+        if(ServiceDesc.length()==0||ServiceDesc.length()<80){
+            edt_Description.setError("Description Required Min 80 Characters");
+        }
+       else {
             edt_Description.setError(null);
             return true;
         }

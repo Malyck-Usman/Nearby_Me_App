@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment_add_home_shop">
+    tools:context=".fragment_add_home_shop"
+    android:id="@+id/layout_add_home_shop"
+    >
 
 
     <androidx.core.widget.NestedScrollView
@@ -36,7 +38,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="Click to get Location"
-                    android:textColor="@color/ColorPrimary" />
+                    android:textColor="@color/secondary" />
 
 
             </androidx.cardview.widget.CardView>
@@ -45,8 +47,7 @@
                 android:id="@+id/edt_dimensions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="dimensions in feet (ie: 30x40)"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="dimensions in feet (ie: 30x40) *"
                 app:counterEnabled="true"
                 app:counterMaxLength="7"
                 app:errorEnabled="true"
@@ -58,15 +59,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textColor="@color/ColorPrimary" />
+                  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Total Area (ie: Marla)"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Total Area (ie: Marla) *"
                 app:counterEnabled="true"
                 app:counterMaxLength="5"
                 app:errorEnabled="true"
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
 
                     android:inputType="numberDecimal"
-                    android:textColor="@color/ColorPrimary" />
+                    />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,8 +91,7 @@
                 android:id="@+id/edt_covered_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Covered Area (ie: Marla)"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Covered Area (ie: Marla) *"
                 app:counterEnabled="true"
                 app:counterMaxLength="5"
                 app:errorEnabled="true"
@@ -107,7 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/ColorPrimary" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,8 +114,7 @@
                 android:id="@+id/edt_rent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Rent amount"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Rent amount *"
                 app:counterEnabled="true"
                 app:counterMaxLength="7"
                 app:errorEnabled="true"
@@ -128,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="@color/ColorPrimary" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -136,7 +134,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Security amount"
-                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="7"
                 app:errorEnabled="true"
@@ -146,7 +143,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="@color/ColorPrimary" />
+                  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -154,7 +151,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="floor (ie ground ,first etc)"
-                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"
                 app:errorEnabled="true"
@@ -166,15 +162,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
-                    android:textColor="@color/ColorPrimary" />
+                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_no_of_rooms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No of rooms"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="No of rooms *"
                 app:counterEnabled="true"
                 app:counterMaxLength="3"
                 app:errorEnabled="true"
@@ -186,15 +181,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="@color/ColorPrimary" />
+                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edt_no_of_baths"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No of bathrooms "
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="No of bathrooms *"
                 app:counterEnabled="true"
                 app:counterMaxLength="3"
                 app:errorEnabled="true"
@@ -206,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="@color/ColorPrimary" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -214,7 +208,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="No of kitchens "
-                android:textColorHint="@color/ColorPrimary"
                 app:counterEnabled="true"
                 app:counterMaxLength="3"
                 app:errorEnabled="true"
@@ -226,7 +219,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="@color/ColorPrimary"
+
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -235,10 +228,8 @@
                 android:id="@+id/edt_description_home_shop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
-                android:textColorHint="@color/ColorPrimary"
+                android:hint="Description *"
                 app:counterEnabled="true"
-                app:counterMaxLength="200"
                 app:errorEnabled="true"
                 app:errorTextColor="@color/app_red"
                 app:layout_constraintStart_toStartOf="parent"
@@ -260,7 +251,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Finishing"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_store"
@@ -269,7 +260,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="store"
-                android:textColor="@color/ColorPrimary" />
+                />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_parking"
@@ -278,7 +269,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="parking"
-                android:textColor="@color/ColorPrimary" />
+              />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_furnished"
@@ -287,7 +278,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="furnished"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_gas_connection"
@@ -296,7 +287,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Gas Connection"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_water_connection"
@@ -305,7 +296,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Water Connection"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_garage"
@@ -314,7 +305,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Garage"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/cb_lawn"
@@ -323,7 +314,7 @@
                 android:layout_gravity="start"
                 android:layout_marginTop="@dimen/chk_margin_top"
                 android:text="Lawn"
-                android:textColor="@color/ColorPrimary" />
+                 />
 
 
             <Button
@@ -334,7 +325,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_button"
                 android:text="save"
-                android:textColor="@color/ColorPrimary"
+                android:textColor="@color/secondary"
                 android:textStyle="bold" />
 
 

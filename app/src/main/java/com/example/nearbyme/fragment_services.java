@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.maps.android.ui.IconGenerator;
@@ -164,7 +166,7 @@ public class fragment_services extends Fragment implements OnMapReadyCallback,Vi
                 mGoogleMap.clear();
                 DrawCircle(radius);
                 addMarker();
-                mDBRef.collection("services").get()
+                mDBRef.collection("services").whereEqualTo("status",true).orderBy("service_type", Query.Direction.ASCENDING).get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -216,6 +218,7 @@ public class fragment_services extends Fragment implements OnMapReadyCallback,Vi
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Log.d("TAG","failed to load service"+e.getMessage());
                         Toast.makeText(getContext(), "Failed to load data,Check your internet connection and try again", Toast.LENGTH_LONG).show();
                     }
                 });

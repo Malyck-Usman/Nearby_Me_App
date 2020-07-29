@@ -182,7 +182,7 @@ public class fragment_homestores extends Fragment implements OnMapReadyCallback,
                 mGoogleMap.clear();
                 DrawCircle(radius);
                 addMarker();
-                mDBRef.collection("store").get()
+                mDBRef.collection("store").whereEqualTo("status",true).get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

@@ -17,6 +17,9 @@ import com.example.nearbyme.detail_fragments.fragment_detail_restaurant;
 
 import java.util.List;
 import com.example.nearbyme.detail_fragments.fragment_detail_announcement;
+
+import io.opencensus.internal.StringUtils;
+
 public class Announcement_adapter extends RecyclerView.Adapter<Announcement_adapter.MyAnnouncementViewHolder> {
 private Context mContext;
 private List<Announcement_info> mAnnouncementList;
